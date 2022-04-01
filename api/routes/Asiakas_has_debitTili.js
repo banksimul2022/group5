@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Asikas_has_DebitTili = require('../models/Asikas_has_DebitTili_model');
+const Asiakas_has_DebitTili = require('../models/Asiakas_has_DebitTili_model');
 
 router.get('/:id?',
  function(request, response) {
   if (request.params.id) {
-    Asikas_has_DebitTili.getById(request.params.id, function(err, dbResult) {
+    Asiakas_has_DebitTili.getById(request.params.id, function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {
@@ -13,7 +13,7 @@ router.get('/:id?',
       }
     });
   } else {
-    Asikas_has_DebitTili.getAll(function(err, dbResult) {
+    Asiakas_has_DebitTili.getAll(function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {
@@ -26,7 +26,7 @@ router.get('/:id?',
 
 router.post('/', 
 function(request, response) {
-  Asikas_has_DebitTili.add(request.body, function(err, dbResult) {
+  Asiakas_has_DebitTili.add(request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -38,7 +38,7 @@ function(request, response) {
 
 router.delete('/:id', 
 function(request, response) {
-  Asikas_has_DebitTili.delete(request.params.id, function(err, dbResult) {
+  Asiakas_has_DebitTili.delete(request.params.id, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -50,7 +50,7 @@ function(request, response) {
 
 router.put('/:id', 
 function(request, response) {
-  Asikas_has_DebitTili.update(request.params.id, request.body, function(err, dbResult) {
+  Asiakas_has_DebitTili.update(request.params.id, request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
