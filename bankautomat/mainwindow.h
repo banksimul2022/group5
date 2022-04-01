@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "valikko.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,11 +17,8 @@ public:
 
 private slots:
 
-    void on_Hyvaksy_clicked();
-
 private:
     Ui::MainWindow *ui;
-    valikko * pvalikko;
 
 };
 #endif // MAINWINDOW_H

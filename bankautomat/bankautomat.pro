@@ -10,16 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp \
-    valikko.cpp
+    mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h \
-    valikko.h
+    mainwindow.h
 
 FORMS += \
-    mainwindow.ui \
-    valikko.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
