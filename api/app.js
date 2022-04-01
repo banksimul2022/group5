@@ -11,7 +11,7 @@ var KorttiRouter = require('./routes/Kortti');
 var TilitapahtumatRouter = require('./routes/Tilitapahtumat');
 var CreditTiliRouter = require('./routes/CreditTili');
 var DebitTiliRouter = require('./routes/DebitTili');
-var Asiakas_has_CreditTiliRouter = require('./routes/Asikas_has_CreditTili');
+var Asiakas_has_CreditTiliRouter = require('./routes/Asiakas_has_CreditTili');
 var Asiakas_has_DebitTiliRouter = require('./routes/Asiakas_has_DebitTili');
 
 
