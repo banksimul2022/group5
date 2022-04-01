@@ -14,12 +14,3 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_Hyvaksy_clicked()
-{
-    pvalikko = new valikko;
-    pvalikko->exec();
-    ui->lineEdit->setText(pvalikko->getText());
-    delete pvalikko;
-}
-
