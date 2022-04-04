@@ -13,7 +13,7 @@ var CreditTiliRouter = require('./routes/CreditTili');
 var DebitTiliRouter = require('./routes/DebitTili');
 var Asiakas_has_CreditTiliRouter = require('./routes/Asiakas_has_CreditTili');
 var Asiakas_has_DebitTiliRouter = require('./routes/Asiakas_has_DebitTili');
-
+var login = require('./routes/login');
 
 var app = express();
 
@@ -33,5 +33,6 @@ app.use('/CreditTili', CreditTiliRouter);
 app.use('/DebitTili', DebitTiliRouter);
 app.use('/Asiakas_has_CreditTili', Asiakas_has_CreditTiliRouter);
 app.use('/Asiakas_has_DebitTili', Asiakas_has_DebitTiliRouter);
+app.use('/login', loginRouter);
 
 module.exports = app;
