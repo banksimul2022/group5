@@ -8,6 +8,7 @@ router.post('/',
     if(request.body.Kortinnumero && request.body.PIN){
       const Kortinnumero = request.body.Kortinnumero;
       const PIN = request.body.PIN;
+
         login.checkPIN(Kortinnumero, function(dbError, dbResult) {
           if(dbError){
             response.json(dbError);
