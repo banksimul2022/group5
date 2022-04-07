@@ -22,3 +22,8 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32: LIBS += -L$$PWD/RFID_DLL/build/debug/ -lRFID_DLL
+
+INCLUDEPATH += $$PWD/RFID_DLL
+DEPENDPATH += $$PWD/RFID_DLL
