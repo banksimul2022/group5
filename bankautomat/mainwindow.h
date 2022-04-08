@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include "rfid_dll.h"
 
-
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,6 +20,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    RFID_DLL * pRFID_DLL;
 
 };
 #endif // MAINWINDOW_H
