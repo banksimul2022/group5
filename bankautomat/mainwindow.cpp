@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     pRFID_DLL = new RFID_DLL;
-    pRFID_DLL->printti();
+    pRFID_DLL->luekortinid();
     pPinkoodi_dll = new Pinkoodi_dll;
 
 }
