@@ -27,3 +27,8 @@ win32: LIBS += -L$$PWD/RFID_DLL/build/debug/ -lRFID_DLL
 
 INCLUDEPATH += $$PWD/RFID_DLL
 DEPENDPATH += $$PWD/RFID_DLL
+
+win32: LIBS += -L$$PWD/pinkoodi_dll/build/debug/ -lpinkoodi_dll
+
+INCLUDEPATH += $$PWD/pinkoodi_dll
+DEPENDPATH += $$PWD/pinkoodi_dll
