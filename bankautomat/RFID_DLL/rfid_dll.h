@@ -8,6 +8,7 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
+
 class RFID_DLL_EXPORT RFID_DLL: public QObject
 {
     Q_OBJECT
@@ -15,13 +16,17 @@ class RFID_DLL_EXPORT RFID_DLL: public QObject
 public:
     RFID_DLL(QObject * parent = nullptr);
    ~RFID_DLL();
-    void printti();
+    void luekortinid();
 
 signals:
+    void laheta(QByteArray);
 
 public slots:
+    void vastaanotaid();
 
 private:
+    QSerialPort * port;
+    QByteArray ID;
 
 };
 
