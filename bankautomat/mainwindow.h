@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "rfid_dll.h"
 #include "pinkoodi_dll.h"
+#include "pinkoodi_engine.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
