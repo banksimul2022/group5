@@ -27,7 +27,6 @@ void RFID_DLL::vastaanotaid()
     QByteArray ID = port->read(16).chopped(3).remove(0, 3);
     qDebug() << "Vastaanotettiin data lukijalta-> "<<ID.data();
     disconnect(port, SIGNAL(readyRead()), this, SLOT(vastaanotaid()));
+
     emit laheta(ID);
-
 }
-
