@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "login.h"
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -15,7 +17,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_BtnLogin_clicked();
+
 private:
     Ui::MainWindow *ui;
+    Login *objectLogin;
 };
 #endif // MAINWINDOW_H
