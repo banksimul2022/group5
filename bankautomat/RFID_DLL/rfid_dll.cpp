@@ -29,4 +29,5 @@ void RFID_DLL::vastaanotaid()
     disconnect(port, SIGNAL(readyRead()), this, SLOT(vastaanotaid()));
 
     emit laheta(ID);
+
 }

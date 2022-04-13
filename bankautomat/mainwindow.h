@@ -19,6 +19,10 @@ public:
     ~MainWindow();
 
 private slots:
+    void RFID_slot(QByteArray);
+    void pinkoodi_slot(QString);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

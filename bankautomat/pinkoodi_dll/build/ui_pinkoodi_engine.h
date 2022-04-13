@@ -134,6 +134,7 @@ public:
         a0->setText(QCoreApplication::translate("pinkoodi_engine", "0", nullptr));
         a6->setText(QCoreApplication::translate("pinkoodi_engine", "6", nullptr));
         a3->setText(QCoreApplication::translate("pinkoodi_engine", "3", nullptr));
+        lineEdit->setText(QString());
     } // retranslateUi
 
 };
