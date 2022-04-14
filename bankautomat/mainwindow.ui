@@ -47,6 +47,19 @@ p, li { white-space: pre-wrap; }
      <string>testi</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="HYVAKSY">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>190</y>
+      <width>401</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HYVAKSY</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -101,4 +101,3 @@ void pinkoodi_engine::on_clear_clicked()
     ui->lineEdit->clear();
 
 }
-

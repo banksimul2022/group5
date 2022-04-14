@@ -1,6 +1,5 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,7 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
             this, SLOT(pinkoodi_slot(QString)));
 
-
 }
 
 MainWindow::~MainWindow()
@@ -31,6 +29,12 @@ MainWindow::~MainWindow()
 
 }
 
+<<<<<<< HEAD
+void MainWindow::on_HYVAKSY_clicked()
+{
+    pPinkoodi_dll->show();
+}
+=======
 void MainWindow::RFID_slot(QByteArray)
 {
     pPinkoodi_dll->show();
@@ -46,3 +50,4 @@ void MainWindow::on_pushButton_clicked()
     pPinkoodi_dll->show();
 }
 
+>>>>>>> 25e5b889254ed63f4e8f5602babe973b8de6a929
