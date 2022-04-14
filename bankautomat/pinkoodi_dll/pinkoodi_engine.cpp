@@ -93,8 +93,6 @@ void pinkoodi_engine::on_enter_clicked()
 
 
 }
-
-
 void pinkoodi_engine::on_clear_clicked()
 {
     pinkoodi.clear();
