@@ -1,6 +1,5 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,7 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
     pPinkoodi_dll = new Pinkoodi_dll;
 
     pRFID_DLL->luekortinid();
-
 
 }
 
@@ -24,4 +22,9 @@ MainWindow::~MainWindow()
     delete pPinkoodi_dll;
     pPinkoodi_dll = nullptr;
 
+}
+
+void MainWindow::on_HYVAKSY_clicked()
+{
+    pPinkoodi_dll->show();
 }

@@ -19,11 +19,11 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_HYVAKSY_clicked();
 
 private:
     Ui::MainWindow *ui;
     RFID_DLL * pRFID_DLL;
     Pinkoodi_dll * pPinkoodi_dll;
-
 };
 #endif // MAINWINDOW_H

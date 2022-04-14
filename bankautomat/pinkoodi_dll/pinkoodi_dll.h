@@ -8,6 +8,7 @@ class PINKOODI_DLL_EXPORT Pinkoodi_dll
 {
 public:
     Pinkoodi_dll();
+    void show();
 
 private:
     pinkoodi_engine *objectpinkoodi_engine;

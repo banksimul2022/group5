@@ -8,7 +8,6 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
-
 class RFID_DLL_EXPORT RFID_DLL: public QObject
 {
     Q_OBJECT
