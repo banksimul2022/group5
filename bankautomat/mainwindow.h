@@ -19,7 +19,14 @@ public:
     ~MainWindow();
 
 private slots:
+<<<<<<< HEAD
     void on_HYVAKSY_clicked();
+=======
+    void RFID_slot(QByteArray);
+    void pinkoodi_slot(QString);
+
+    void on_pushButton_clicked();
+>>>>>>> 25e5b889254ed63f4e8f5602babe973b8de6a929
 
 private:
     Ui::MainWindow *ui;

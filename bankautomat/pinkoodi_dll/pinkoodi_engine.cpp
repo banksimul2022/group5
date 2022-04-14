@@ -89,6 +89,9 @@ void pinkoodi_engine::on_enter_clicked()
 {
     qDebug()<<pinkoodi;
 
+    emit pinkoodi_signal(pinkoodi);
+
+
 }
 
 
