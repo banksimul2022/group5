@@ -2,7 +2,7 @@ const db = require('../database');
 
 const CreditTili = {
   getById: function(id, callback) {
-    return db.query('select * from asiakas where Tilinnumero=?', [id], callback);
+    return db.query('select * from CreditTili where Tilinnumero=?', [id], callback);
   },
   getAll: function(callback) {
     return db.query('select * from CreditTili', callback);
@@ -15,11 +15,11 @@ const CreditTili = {
     );
   },
   delete: function(id, callback) {
-    return db.query('delete from asiakas where Tilinnumero=?', [id], callback);
+    return db.query('delete from CreditTili where Tilinnumero=?', [id], callback);
   },
   update: function(id, CreditTili, callback) {
     return db.query(
-      'update CreditTili set Velka=?, Tilinnumero=?, where Tilinnumero=?',
+      'update CreditTili set Velka=?, Tilinnumero=? where Tilinnumero=?',
       [CreditTili.Velka, CreditTili.Tilinnumero,id],
       callback
     );
