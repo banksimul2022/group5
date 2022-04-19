@@ -19,7 +19,7 @@ const asiakas = {
   },
   update: function(id, asiakas, callback) {
     return db.query(
-      'update asiakas set Tunnus=?, Etunimi=?, Sukunimi=?, Lahiosoite=?, Puhelin=?, where Tunnus=?',
+      'update asiakas set Tunnus=?, Etunimi=?, Sukunimi=?, Lahiosoite=?, Puhelin=? where Tunnus=?',
       [asiakas.Tunnus, asiakas.Etunimi, asiakas.Sukunimi, asiakas.Lahiosoite, asiakas.Puhelin,id],
       callback
     );

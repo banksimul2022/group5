@@ -19,7 +19,7 @@ const Asiakas_has_DebitTili = {
   },
   update: function(id, Asiakas_has_DebitTili, callback) {
     return db.query(
-      'update Asiakas_has_DebitTili set Asiakas_Tunnus=?, DebitTili_tilinnumero, where Asiakas_Tunnus=?',
+      'update Asiakas_has_DebitTili set Asiakas_Tunnus=?, DebitTili_tilinnumero where Asiakas_Tunnus=?',
       [Asiakas_has_DebitTili.Asiakas_Tunnus, Asiakas_has_DebitTili.Asiakas_has_DebitTili,id],
       callback
     );
