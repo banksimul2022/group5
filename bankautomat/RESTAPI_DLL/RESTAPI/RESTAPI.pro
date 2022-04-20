@@ -1,4 +1,5 @@
 QT       += core gui
+QT +=network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,12 +13,14 @@ SOURCES += \
     korttimain.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    myurl.cpp
 
 HEADERS += \
     korttimain.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    myurl.h
 
 FORMS += \
     korttimain.ui \
