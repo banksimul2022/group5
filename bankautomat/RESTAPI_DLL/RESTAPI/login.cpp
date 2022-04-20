@@ -34,6 +34,7 @@ void Login::on_BtnLogin_clicked()
     jsonObj.insert("PIN", PIN);
 
     QNetworkRequest request((base_url+"/login"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
 
     loginManager = new QNetworkAccessManager(this);

@@ -10,7 +10,7 @@ class MyUrl
 public:
     MyUrl();
 
-    const QString &getBase_url() const;
+    const QString getBase_url() const;
 
 private:
     QString base_url;
