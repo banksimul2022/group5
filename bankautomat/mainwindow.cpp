@@ -10,9 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     pPinkoodi_dll = new Pinkoodi_dll;
 
     pRFID_DLL->luekortinid();
+
     connect(pRFID_DLL,SIGNAL(laheta(QByteArray)),
                 this, SLOT(RFID_slot(QByteArray)));
-
     connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
                 this, SLOT(pinkoodi_slot(QString)));
 }
@@ -27,9 +27,10 @@ MainWindow::~MainWindow()
     pPinkoodi_dll = nullptr;
 
 }
+
 void MainWindow::on_HYVAKSY_clicked()
 {
-    pPinkoodi_dll->show();
+
 }
 
 void MainWindow::RFID_slot(QByteArray)

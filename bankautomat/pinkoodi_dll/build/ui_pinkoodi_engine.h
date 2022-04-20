@@ -42,10 +42,10 @@ public:
     {
         if (pinkoodi_engine->objectName().isEmpty())
             pinkoodi_engine->setObjectName(QString::fromUtf8("pinkoodi_engine"));
-        pinkoodi_engine->resize(400, 300);
+        pinkoodi_engine->resize(375, 343);
         gridLayoutWidget = new QWidget(pinkoodi_engine);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(60, 40, 254, 146));
+        gridLayoutWidget->setGeometry(QRect(50, 110, 254, 146));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -111,7 +111,7 @@ public:
 
         lineEdit = new QLineEdit(pinkoodi_engine);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(60, 190, 251, 24));
+        lineEdit->setGeometry(QRect(50, 260, 251, 24));
         lineEdit->setEchoMode(QLineEdit::Password);
 
         retranslateUi(pinkoodi_engine);
