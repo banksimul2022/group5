@@ -1,6 +1,7 @@
 #include "rfid_dll.h"
 #include <QDebug>
 
+
 RFID_DLL::RFID_DLL(QObject *parent) : QObject (parent)
 {
     port = new QSerialPort(this);

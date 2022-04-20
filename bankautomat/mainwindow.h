@@ -20,6 +20,8 @@ public:
 
 private slots:
     void on_HYVAKSY_clicked();
+    void RFID_slot(QByteArray);
+    void pinkoodi_slot(QString);
 
 private:
     Ui::MainWindow *ui;
