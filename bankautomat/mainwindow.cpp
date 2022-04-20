@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -7,9 +7,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     pRFID_DLL = new RFID_DLL;
-    pRFID_DLL->luekortinid();
     pPinkoodi_dll = new Pinkoodi_dll;
 
+    pRFID_DLL->luekortinid();
+    connect(pRFID_DLL,SIGNAL(laheta(QByteArray)),
+                this, SLOT(RFID_slot(QByteArray)));
+
+    connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
+                this, SLOT(pinkoodi_slot(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -18,6 +23,21 @@ MainWindow::~MainWindow()
 
     delete pRFID_DLL;
     pRFID_DLL = nullptr;
+    delete pPinkoodi_dll;
+    pPinkoodi_dll = nullptr;
 
 }
+void MainWindow::on_HYVAKSY_clicked()
+{
+    pPinkoodi_dll->show();
+}
 
+void MainWindow::RFID_slot(QByteArray)
+{
+    pPinkoodi_dll->show();
+}
+
+void MainWindow::pinkoodi_slot(QString pinkoodi)
+{
+    qDebug()<<"pinkoodi exessä: " + pinkoodi;
+}

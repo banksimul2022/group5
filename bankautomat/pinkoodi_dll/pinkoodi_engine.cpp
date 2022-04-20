@@ -89,13 +89,11 @@ void pinkoodi_engine::on_enter_clicked()
 {
     qDebug()<<pinkoodi;
 
+    emit pinkoodi_signal(pinkoodi);
+
 }
-
-
 void pinkoodi_engine::on_clear_clicked()
 {
     pinkoodi.clear();
     ui->lineEdit->clear();
-
 }
-

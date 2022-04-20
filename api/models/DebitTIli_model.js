@@ -2,7 +2,7 @@ const db = require('../database');
 
 const DebitTili = {
   getById: function(id, callback) {
-    return db.query('select * from asiakas where Tilinnumero=?', [id], callback);
+    return db.query('select * from DebitTili where Tilinnumero=?', [id], callback);
   },
   getAll: function(callback) {
     return db.query('select * from DebitTili', callback);
@@ -15,11 +15,11 @@ const DebitTili = {
     );
   },
   delete: function(id, callback) {
-    return db.query('delete from asiakas where Tilinnumero=?', [id], callback);
+    return db.query('delete from DebitTili where Tilinnumero=?', [id], callback);
   },
   update: function(id, DebitTili, callback) {
     return db.query(
-      'update DebitTili set Saldo=?, Tilinnumero=?, where Tilinnumero=?',
+      'update DebitTili set Saldo=?, Tilinnumero=? where Tilinnumero=?',
       [DebitTili.Saldo, DebitTili.Tilinnumero,id],
       callback
     );

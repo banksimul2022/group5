@@ -19,7 +19,7 @@ const tilitapahtumat = {
   },
   update: function(id, tilitapahtumat, callback) {
     return db.query(
-      'update tilitapahtumat set Tilinnumero=?, Kortinnumero=?, PVM=?, Tapahtuma=?, Summa=?, DebitTili_Tilinnumero=?, CreditTili_Tilinnumero=?, where Tilinnumero=?',
+      'update tilitapahtumat set Tilinnumero=?, Kortinnumero=?, PVM=?, Tapahtuma=?, Summa=?, DebitTili_Tilinnumero=?, CreditTili_Tilinnumero=? where Tilinnumero=?',
       [tilitapahtumat.Tilinnumero, tilitapahtumat.Kortinnumero, tilitapahtumat.PVM, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.DebitTili_Tilinnumero, tilitapahtumat.CreditTili_Tilinnumero,id],
       callback
     );

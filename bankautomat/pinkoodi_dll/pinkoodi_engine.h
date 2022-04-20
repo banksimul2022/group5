@@ -17,6 +17,9 @@ public:
     explicit pinkoodi_engine(QWidget *parent = nullptr);
     ~pinkoodi_engine();
 
+signals:
+    void pinkoodi_signal(QString);
+
 private slots:
     void on_a1_clicked();
 
