@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 5.0.3, 2022-04-14T17:19:37. -->
+<!-- Written by QtCreator 5.0.3, 2022-04-21T13:03:11. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -246,10 +246,10 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/pankkiprojekti/group5/bankautomat/RESTAPI_DLL/RESTAPI/RESTAPI.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/pankkiprojekti/group5/bankautomat/RESTAPI_DLL/RESTAPI/RESTAPI.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">false</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">false</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/pankkiprojekti/group5/bankautomat/RESTAPI_DLL/RESTAPI/build</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
