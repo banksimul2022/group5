@@ -19,4 +19,3 @@ void Korttimain::on_BtnValikko_clicked()
 {
 
 }
-

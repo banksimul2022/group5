@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
                 this, SLOT(pinkoodi_slot(QString)));
 }
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
