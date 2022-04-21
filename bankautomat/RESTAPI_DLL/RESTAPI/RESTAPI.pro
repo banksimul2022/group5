@@ -1,7 +1,7 @@
-QT       += core gui
-QT +=network
+QT -= gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+TEMPLATE = lib
+DEFINES += RESTAPI_LIBRARY
 
 CONFIG += c++11
 
@@ -10,24 +10,14 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    korttimain.cpp \
-    login.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    myurl.cpp
+    restapi.cpp
 
 HEADERS += \
-    korttimain.h \
-    login.h \
-    mainwindow.h \
-    myurl.h
-
-FORMS += \
-    korttimain.ui \
-    login.ui \
-    mainwindow.ui
+    RESTAPI_global.h \
+    restapi.h
 
 # Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
+unix {
+    target.path = /usr/lib
+}
 !isEmpty(target.path): INSTALLS += target
