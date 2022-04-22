@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     pRFID_DLL = new RFID_DLL;
     pPinkoodi_dll = new Pinkoodi_dll;
+    pRESTAPI_DLL = new RESTAPI;
 
     pRFID_DLL->luekortinid();
 
@@ -16,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
                 this, SLOT(pinkoodi_slot(QString)));
 }
+
 
 
 MainWindow::~MainWindow()

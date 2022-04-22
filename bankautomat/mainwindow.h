@@ -5,6 +5,8 @@
 #include "rfid_dll.h"
 #include "pinkoodi_dll.h"
 #include "pinkoodi_engine.h"
+#include "restapi.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +29,7 @@ private:
     Ui::MainWindow *ui;
     RFID_DLL * pRFID_DLL;
     Pinkoodi_dll * pPinkoodi_dll;
+    RESTAPI * pRESTAPI_DLL;
 };
 
 #endif // MAINWINDOW_H
