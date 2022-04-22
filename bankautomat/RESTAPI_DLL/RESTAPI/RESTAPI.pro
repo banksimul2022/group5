@@ -11,13 +11,21 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    asiakas.cpp \
     login.cpp \
-    restapi.cpp
+    myurl.cpp \
+    restapi.cpp \
+    saldo.cpp \
+    tilitapahtumat.cpp
 
 HEADERS += \
     RESTAPI_global.h \
+    asiakas.h \
     login.h \
-    restapi.h
+    myurl.h \
+    restapi.h \
+    saldo.h \
+    tilitapahtumat.h
 
 # Default rules for deployment.
 unix {
