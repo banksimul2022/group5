@@ -8,9 +8,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     pRFID_DLL = new RFID_DLL;
     pPinkoodi_dll = new Pinkoodi_dll;
+<<<<<<< HEAD
     pRESTAPI_DLL = new RESTAPI;
+=======
+    timer = new QTimer;
+>>>>>>> 6d9666ccabd7ac91f58fe00200cbbe567d325aba
 
     pRFID_DLL->luekortinid();
+    startTimer();
+
 
     connect(pRFID_DLL,SIGNAL(laheta(QByteArray)),
                 this, SLOT(RFID_slot(QByteArray)));
@@ -28,6 +34,8 @@ MainWindow::~MainWindow()
     pRFID_DLL = nullptr;
     delete pPinkoodi_dll;
     pPinkoodi_dll = nullptr;
+    delete timer;
+    timer = nullptr;
 
 }
 
@@ -45,3 +53,10 @@ void MainWindow::pinkoodi_slot(QString pinkoodi)
 {
     qDebug()<<"pinkoodi exessä: " + pinkoodi;
 }
+
+void MainWindow::startTimer()
+{
+    qDebug() << "start timer 10sec";
+    timer->start(10000);
+}
+
