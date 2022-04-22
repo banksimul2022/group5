@@ -5,6 +5,7 @@
 #include "rfid_dll.h"
 #include "pinkoodi_dll.h"
 #include "pinkoodi_engine.h"
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,11 +23,13 @@ private slots:
     void on_HYVAKSY_clicked();
     void RFID_slot(QByteArray);
     void pinkoodi_slot(QString);
+    void startTimer();
 
 private:
     Ui::MainWindow *ui;
     RFID_DLL * pRFID_DLL;
     Pinkoodi_dll * pPinkoodi_dll;
+    QTimer * timer;
 };
 
 #endif // MAINWINDOW_H
