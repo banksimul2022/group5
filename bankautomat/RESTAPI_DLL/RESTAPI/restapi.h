@@ -32,9 +32,9 @@ public:
 private:
 
         Login *objectLogin;
-        Asiakas *objectAsiakas;
-        Saldo * objectSaldo;
-        Tilitapahtumat *objectTilitapahtumat;
+        asiakas *objectAsiakas;
+        saldo * objectSaldo;
+        tilitapahtumat *objectTilitapahtumat;
 
 };
 

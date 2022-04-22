@@ -5,9 +5,9 @@ RESTAPI::RESTAPI()
     qDebug()<<"DLLRestAPI muodostimessa";
 
         objectLogin = new Login;
-        objectAsiakas = new Asiakas;
-        objectSaldo = new Saldo;
-        objectTilitapahtumat = new Tilitapahtumat;
+        objectAsiakas = new asiakas;
+        objectSaldo = new saldo;
+        objectTilitapahtumat = new tilitapahtumat;
 }
 
 RESTAPI::~RESTAPI()
