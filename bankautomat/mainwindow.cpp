@@ -8,11 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     pRFID_DLL = new RFID_DLL;
     pPinkoodi_dll = new Pinkoodi_dll;
-<<<<<<< HEAD
+
     pRESTAPI_DLL = new RESTAPI;
-=======
+
     timer = new QTimer;
->>>>>>> 6d9666ccabd7ac91f58fe00200cbbe567d325aba
 
     pRFID_DLL->luekortinid();
     startTimer();
@@ -41,7 +40,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_HYVAKSY_clicked()
 {
-
+    pPinkoodi_dll->show();
 }
 
 void MainWindow::RFID_slot(QByteArray)
