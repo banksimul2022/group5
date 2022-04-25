@@ -1,6 +1,7 @@
 const db = require('../database');
 
 const tilitapahtumat = {
+
   getById: function(id, callback) {
     return db.query('select * from tilitapahtumat where Tilinnumero=?', [id], callback);
   },
@@ -9,8 +10,8 @@ const tilitapahtumat = {
   },
   add: function(tilitapahtumat, callback) {
     return db.query(
-      'insert into tilitapahtumat (Tilinnumero,Kortinnumero,PVM,Tapahtuma,Summa,DebitTili_Tilinnumero,CreditTili_Tilinnumero) values(?,?,?,?,?,?,?)',
-      [tilitapahtumat.Tilinnumero, tilitapahtumat.Kortinnumero, tilitapahtumat.PVM, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.DebitTili_Tilinnumero, tilitapahtumat.CreditTili_Tilinnumero],
+      'insert into tilitapahtumat (Tilinnumero,PVM,Tapahtuma,Summa,DebitTili_Tilinnumero,CreditTili_Tilinnumero) values(?,?,?,?,?,?,?)',
+      [tilitapahtumat.Tilinnumero, tilitapahtumat.PVM, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.DebitTili_Tilinnumero, tilitapahtumat.CreditTili_Tilinnumero],
       callback
     );
   },
@@ -19,8 +20,8 @@ const tilitapahtumat = {
   },
   update: function(id, tilitapahtumat, callback) {
     return db.query(
-      'update tilitapahtumat set Tilinnumero=?, Kortinnumero=?, PVM=?, Tapahtuma=?, Summa=?, DebitTili_Tilinnumero=?, CreditTili_Tilinnumero=? where Tilinnumero=?',
-      [tilitapahtumat.Tilinnumero, tilitapahtumat.Kortinnumero, tilitapahtumat.PVM, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.DebitTili_Tilinnumero, tilitapahtumat.CreditTili_Tilinnumero,id],
+      'update tilitapahtumat set Tilinnumero=?, PVM=?, Tapahtuma=?, Summa=?, DebitTili_Tilinnumero=?, CreditTili_Tilinnumero=? where Tilinnumero=?',
+      [tilitapahtumat.Tilinnumero, tilitapahtumat.PVM, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.DebitTili_Tilinnumero, tilitapahtumat.CreditTili_Tilinnumero,id],
       callback
     );
   }
