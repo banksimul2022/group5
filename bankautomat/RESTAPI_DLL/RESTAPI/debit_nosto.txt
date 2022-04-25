@@ -1,5 +1,5 @@
 DELIMITER //
-CREATE PROCEDURE debit_nosto(IN first_id INT, IN Summa INT)
+CREATE PROCEDURE debit_nosto(IN first_id INT,IN Summa INT)
   BEGIN
   DECLARE test1 INT DEFAULT 0;
   START TRANSACTION;
@@ -7,7 +7,7 @@ CREATE PROCEDURE debit_nosto(IN first_id INT, IN Summa INT)
   SET test1=ROW_COUNT();
     IF (test1 > 0) THEN   
       COMMIT;    
-      INSERT INTO tilitapahtumat(Tilinnumero,Tapahtuma,Summa,PVM,CreditTili_Tilinnumero, DebitTili_Tilinnumero) VALUES(first_id,'Nosto',Summa,NOW(),first_id, first_id);
+      INSERT INTO tilitapahtumat(Tilinnumero,Tapahtuma,PVM,Summa,CreditTili_Tilinnumero,DebitTili_Tilinnumero) VALUES(first_id,'Nosto',NOW(),Summa,first_id,first_id);
     ELSE
       ROLLBACK;
   END IF;
