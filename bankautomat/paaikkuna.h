@@ -28,6 +28,7 @@ private slots:
 
 private:
     Ui::Paaikkuna *ui;
+
 };
 
 #endif // PAAIKKUNA_H

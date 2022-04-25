@@ -5,9 +5,12 @@
 #include "rfid_dll.h"
 #include "pinkoodi_dll.h"
 #include "pinkoodi_engine.h"
-
 #include "restapi.h"
 #include <QTimer>
+#include "paaikkuna.h"
+#include "creditdebit.h"
+
+
 
 
 QT_BEGIN_NAMESPACE
@@ -34,6 +37,8 @@ private:
     Pinkoodi_dll * pPinkoodi_dll;
     RESTAPI * pRESTAPI_DLL;
     QTimer * timer;
+    Paaikkuna * Ppaaikkuna;
+    creditdebit * pcreditdebit;
 
 };
 
