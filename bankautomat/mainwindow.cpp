@@ -14,9 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer;
 
     pRFID_DLL->luekortinid();
+
     startTimer();
-
-
     connect(pRFID_DLL,SIGNAL(laheta(QByteArray)),
                 this, SLOT(RFID_slot(QByteArray)));
     connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
