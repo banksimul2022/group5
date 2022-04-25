@@ -5,12 +5,10 @@
 #include "rfid_dll.h"
 #include "pinkoodi_dll.h"
 #include "pinkoodi_engine.h"
-<<<<<<< HEAD
-#include "restapi.h"
 
-=======
+#include "restapi.h"
 #include <QTimer>
->>>>>>> 6d9666ccabd7ac91f58fe00200cbbe567d325aba
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -34,11 +32,9 @@ private:
     Ui::MainWindow *ui;
     RFID_DLL * pRFID_DLL;
     Pinkoodi_dll * pPinkoodi_dll;
-<<<<<<< HEAD
     RESTAPI * pRESTAPI_DLL;
-=======
     QTimer * timer;
->>>>>>> 6d9666ccabd7ac91f58fe00200cbbe567d325aba
+
 };
 
 #endif // MAINWINDOW_H

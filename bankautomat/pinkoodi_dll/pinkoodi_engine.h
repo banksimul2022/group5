@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QDebug>
 #include <QString>
+#include <QTimer>
 
 namespace Ui {
 class pinkoodi_engine;
@@ -16,6 +17,7 @@ class pinkoodi_engine : public QDialog
 public:
     explicit pinkoodi_engine(QWidget *parent = nullptr);
     ~pinkoodi_engine();
+    QTimer * timer;
 
 signals:
     void pinkoodi_signal(QString);
@@ -45,9 +47,12 @@ private slots:
 
     void on_enter_clicked();
 
+    void aika_loppu();
+
 private:
     Ui::pinkoodi_engine *ui;
     QString pinkoodi;
+
 };
 
 #endif // PINKOODI_ENGINE_H
