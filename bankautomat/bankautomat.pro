@@ -10,14 +10,20 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    creditdebit.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    paaikkuna.cpp
 
 HEADERS += \
-    mainwindow.h
+    creditdebit.h \
+    mainwindow.h \
+    paaikkuna.h
 
 FORMS += \
-    mainwindow.ui
+    creditdebit.ui \
+    mainwindow.ui \
+    paaikkuna.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
