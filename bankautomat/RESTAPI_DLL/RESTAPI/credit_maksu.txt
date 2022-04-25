@@ -1,0 +1,18 @@
+DELIMITER //
+CREATE PROCEDURE credit_maksu(IN first_id INT, IN second_id INT, IN Summa INT )
+  BEGIN
+  DECLARE test1,test2 INT DEFAULT 0;
+  START TRANSACTION;
+  UPDATE debittili SET Saldo=Saldo-Summa WHERE tilinnumero=first_id;
+  SET test1=ROW_COUNT();
+  UPDATE credittili SET Velka=Velka+Summa WHERE tilinnumero=second_id;
+  SET test2=ROW_COUNT();
+    IF (test1 > 0 AND test2 = 0 OR test2 > 0) THEN   
+      COMMIT;    
+      INSERT INTO tilitapahtumat(Tilinnumero,Tapahtuma,PVM,Summa,CreditTili_Tilinnumero,DebitTili_Tilinnumero) VALUES(first_id,'Credit_Laskutus',NOW(),Summa,first_id,first_id);
+      INSERT INTO tilitapahtumat(Tilinnumero,Tapahtuma,PVM,Summa,CreditTili_Tilinnumero,DebitTili_Tilinnumero) VALUES(second_id,'Credit_Laskutus',NOW(),Summa,first_id,first_id);
+    ELSE
+      ROLLBACK;
+  END IF;
+  END //
+DELIMITER ;
