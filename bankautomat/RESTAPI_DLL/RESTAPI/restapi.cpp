@@ -8,6 +8,9 @@ RESTAPI::RESTAPI()
         objectAsiakas = new asiakas;
         objectSaldo = new saldo;
         objectTilitapahtumat = new tilitapahtumat;
+
+        connect(objectLogin, SIGNAL(getTrueFalse(QString)),
+                this, SLOT(login_slot(QString)));
 }
 
 RESTAPI::~RESTAPI()
@@ -42,4 +45,9 @@ void RESTAPI::startSaldo()
 void RESTAPI::startTilitapahtumat()
 {
 
+}
+
+void RESTAPI::login_slot(QString truefalse)
+{
+    emit login_signal(truefalse);
 }

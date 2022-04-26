@@ -30,6 +30,7 @@ private slots:
     void RFID_slot(QByteArray);
     void pinkoodi_slot(QString);
     void startTimer();
+    void login_slot(QString);
 
 private:
     Ui::MainWindow *ui;

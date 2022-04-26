@@ -7,10 +7,11 @@
 #include "saldo.h"
 #include "tilitapahtumat.h"
 #include <qstring.h>
+#include <QObject>
 
-
-class RESTAPI_EXPORT RESTAPI
+class RESTAPI_EXPORT RESTAPI:public QObject
 {
+    Q_OBJECT
 public:
     RESTAPI();
     ~RESTAPI();
@@ -27,7 +28,11 @@ public:
     QString getTilitapahtumat();
     void startTilitapahtumat();
 
+private slots:
+    void login_slot(QString);
 
+signals:
+    void login_signal(QString);
 
 private:
 
