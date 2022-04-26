@@ -69,9 +69,31 @@ function(request, response) {
   });
 });
 
+router.get('/10Tapahtumaa/:id?',
+ function(request, response) {
+  if (request.params.id) {
+    Tilitapahtumat.get10Tapahtumaa(request.params.id, function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult);
+      }
+    });
+  } 
+});
 
-
-
+router.get('/5Tapahtumaa/:id?',
+ function(request, response) {
+  if (request.params.id) {
+    Tilitapahtumat.get5Tapahtumaa(request.params.id, function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult);
+      }
+    });
+  } 
+});
 
 router.post('/', 
 function(request, response) {
