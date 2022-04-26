@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "co": "^4.6.0",
-    "dotenv": "^16.0.0",
-    "jsonwebtoken": "^8.5.1"
-  }
-}

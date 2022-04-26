@@ -1,4 +1,5 @@
 const express = require('express');
+const tilitapahtumat = require('../models/Tilitapahtumat_model');
 const router = express.Router();
 const Tilitapahtumat = require('../models/Tilitapahtumat_model');
 
@@ -22,6 +23,54 @@ router.get('/:id?',
     });
   }
 });
+
+router.post('/debit_nosto', 
+function(request, response) {
+  tilitapahtumat.debit_nosto(request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(request.body);
+    }
+  });
+});
+
+router.post('/debit_talletus', 
+function(request, response) {
+  tilitapahtumat.debit_talletus(request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(request.body);
+    }
+  });
+});
+
+
+router.post('/credit_nosto', 
+function(request, response) {
+  tilitapahtumat.credit_nosto(request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(request.body);
+    }
+  });
+});
+
+router.post('/credit_maksu', 
+function(request, response) {
+  tilitapahtumat.credit_maksu(request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(request.body);
+    }
+  });
+});
+
+
+
 
 
 router.post('/', 
