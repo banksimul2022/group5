@@ -20,12 +20,14 @@ MainWindow::MainWindow(QWidget *parent)
     startTimer();
     connect(pRFID_DLL,SIGNAL(laheta(QByteArray)),
                 this, SLOT(RFID_slot(QByteArray)));
+
     connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
                 this, SLOT(pinkoodi_slot(QString)));
+
+    /*connect(pRESTAPI_DLL, SIGNAL(login_signal(QString)),
+            this, SLOT(login_slot(QString)));*/
+
 }
-
-
-
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -49,8 +51,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_HYVAKSY_clicked()
 {
-    Ppaaikkuna->show();
-    pcreditdebit->show();
+     pPinkoodi_dll->show();
+     pcreditdebit->show();
 }
 
 void MainWindow::RFID_slot(QByteArray)
@@ -62,11 +64,17 @@ void MainWindow::RFID_slot(QByteArray)
 void MainWindow::pinkoodi_slot(QString pinkoodi)
 {
     qDebug()<<"pinkoodi exessä: " + pinkoodi;
+    pRESTAPI_DLL->setPin("1", pinkoodi);
 }
 
 void MainWindow::startTimer()
 {
     qDebug() << "start timer 10sec";
     timer->start(10000);
+}
+
+void MainWindow::login_slot(QString truefalse)
+{
+    qDebug()<< "login slotissa: " + truefalse;
 }
 

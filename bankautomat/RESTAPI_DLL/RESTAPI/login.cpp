@@ -38,7 +38,8 @@ void Login::getPin()
     QNetworkRequest request((base_url+"/login"));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-    connect(postManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
+    connect(postManager, SIGNAL(finished(QNetworkReply*)),
+            this, SLOT(loginSlot(QNetworkReply*)));
     reply = postManager->post(request, QJsonDocument(jsonObj).toJson());
 }
 
@@ -52,15 +53,16 @@ void Login::loginSlot(QNetworkReply *reply)
 
     if(response_data=="true")
     {
-        token = "Bearer "+response_data;
-        qDebug()<<token;
+        response_data = "kirjautuminen onnistui"
+;        /*token = "Bearer "+response_data;
+        qDebug()<<token;*/
         //Singleton *s = s->getSingletonInstance();
         //s->setSingletonToken(token);
         //trueFalse = "true";
     }
-    else
+    else if(response_data == "false")
     {
-        trueFalse = "false";
+        response_data = "kortinnumero tai pinkoodi vaarin";
     }
        qDebug()<<"If else lopetettu getPin lopussa";
        emit getTrueFalse(trueFalse);
