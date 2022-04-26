@@ -25,12 +25,12 @@ const tilitapahtumat = {
   },
 
   get10Tapahtumaa: function(id, callback) {
-    return db.query('SELECT * FROM tilitapahtumat ORDER BY id_tapahtuma DESC limit 10;',
+    return db.query('SELECT * FROM tilitapahtumat WHERE tilinnumero=? ORDER BY id_tapahtuma DESC limit 10;',
      [id], callback);
   },
 
   get5Tapahtumaa: function(id, callback) {
-    return db.query('SELECT * FROM tilitapahtumat ORDER BY id_tapahtuma DESC limit 5;',
+    return db.query('SELECT * FROM tilitapahtumat WHERE tilinnumero=?ORDER BY id_tapahtuma DESC limit 5;',
      [id], callback);
   },
 
