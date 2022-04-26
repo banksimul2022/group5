@@ -24,6 +24,17 @@ const tilitapahtumat = {
     [parameters.Tilinnumero, parameters.Summa], callback);
   },
 
+  get10Tapahtumaa: function(id, callback) {
+    return db.query('SELECT * FROM tilitapahtumat ORDER BY id_tapahtuma DESC limit 10;',
+     [id], callback);
+  },
+
+  get5Tapahtumaa: function(id, callback) {
+    return db.query('SELECT * FROM tilitapahtumat ORDER BY id_tapahtuma DESC limit 5;',
+     [id], callback);
+  },
+
+
   getById: function(id, callback) {
     return db.query('select * from tilitapahtumat where Tilinnumero=?', [id], callback);
   },
