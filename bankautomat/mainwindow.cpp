@@ -24,8 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
                 this, SLOT(pinkoodi_slot(QString)));
 
-    /*connect(pRESTAPI_DLL, SIGNAL(login_signal(QString)),
-            this, SLOT(login_slot(QString)));*/
+    connect(pRESTAPI_DLL, SIGNAL(login_signal(QString)),
+            this, SLOT(login_slot(QString)));
 
 }
 MainWindow::~MainWindow()

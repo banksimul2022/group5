@@ -40,7 +40,9 @@ win32: LIBS += -L$$PWD/pinkoodi_dll/build/debug/ -lpinkoodi_dll
 INCLUDEPATH += $$PWD/pinkoodi_dll
 DEPENDPATH += $$PWD/pinkoodi_dll
 
-win32: LIBS += -L$$PWD/RESTAPI_DLL/build-RESTAPI-Desktop_Qt_5_15_2_MinGW_32_bit-Debug/debug/ -lRESTAPI
+
+
+win32: LIBS += -L$$PWD/RESTAPI_DLL/RESTAPI/build/debug/ -lRESTAPI
 
 INCLUDEPATH += $$PWD/RESTAPI_DLL/RESTAPI
 DEPENDPATH += $$PWD/RESTAPI_DLL/RESTAPI
