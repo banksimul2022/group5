@@ -34,7 +34,7 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="Tilitapahtumat">
       <property name="text">
        <string>Tilitapahtumat</string>
       </property>
@@ -55,14 +55,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="Nosta_rahaa">
       <property name="text">
        <string>Nosta rahaa</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="Kirjaudu_ulos">
       <property name="text">
        <string>Kirjaudu ulos</string>
       </property>
@@ -70,7 +70,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="Saldo">
    <property name="geometry">
     <rect>
      <x>10</x>

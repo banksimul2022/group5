@@ -52,8 +52,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_HYVAKSY_clicked()
 {
      pPinkoodi_dll->show();
-     //pcreditdebit->show();
-     Ppaaikkuna->show();
+
 }
 
 void MainWindow::RFID_slot(QByteArray)
@@ -77,5 +76,12 @@ void MainWindow::startTimer()
 void MainWindow::login_slot(QString truefalse)
 {
     qDebug()<< "login slotissa: " + truefalse;
+
+    if(truefalse != "false")
+    {
+        pPinkoodi_dll->close();
+        pcreditdebit->show();
+    }
+
 }
 
