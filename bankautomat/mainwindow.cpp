@@ -53,6 +53,7 @@ void MainWindow::on_HYVAKSY_clicked()
 {
      pPinkoodi_dll->show();
      //pcreditdebit->show();
+     Ppaaikkuna->show();
 }
 
 void MainWindow::RFID_slot(QByteArray)

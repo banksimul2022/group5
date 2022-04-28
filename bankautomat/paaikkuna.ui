@@ -13,61 +13,74 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
+  <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>110</y>
+     <x>240</x>
+     <y>120</y>
      <width>501</width>
-     <height>431</height>
+     <height>291</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>221</width>
+     <height>151</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="naytasaldo">
+     <widget class="QPushButton" name="pushButton_6">
       <property name="text">
-       <string>NAYTA SALDO</string>
+       <string>Tilitapahtumat</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="selaatilitapahtumia">
+     <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>SELAA TILITAPAHTUMIA</string>
+       <string>10 seur. tilitapahtumaa</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="nostarahaa">
+     <widget class="QPushButton" name="pushButton_3">
       <property name="text">
-       <string>NOSTA RAHAA</string>
+       <string> 10 viim. tilitapahtumaa</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="talletarahaa">
+     <widget class="QPushButton" name="pushButton_4">
       <property name="text">
-       <string>TALLETA RAHAA</string>
+       <string>Nosta rahaa</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="kirjaudu_ulos">
+     <widget class="QPushButton" name="pushButton_2">
       <property name="text">
-       <string>KIRJAUDU ULOS</string>
+       <string>Kirjaudu ulos</string>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>60</y>
-     <width>501</width>
-     <height>51</height>
+     <x>10</x>
+     <y>180</y>
+     <width>80</width>
+     <height>24</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>Saldo</string>
    </property>
   </widget>
  </widget>
