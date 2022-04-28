@@ -12,6 +12,7 @@ class PINKOODI_DLL_EXPORT Pinkoodi_dll : public QObject
 public:
     Pinkoodi_dll();
     void show();
+    void close();
 
 private slots:
     void pinkoodi_slot(QString);

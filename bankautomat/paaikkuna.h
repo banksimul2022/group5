@@ -26,6 +26,8 @@ private slots:
 
     void on_naytasaldo_clicked();
 
+    void on_Nosta_rahaa_clicked();
+
 private:
     Ui::Paaikkuna *ui;
 
