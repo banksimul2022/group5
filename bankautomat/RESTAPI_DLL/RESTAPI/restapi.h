@@ -28,6 +28,8 @@ public:
     QString getTilitapahtumat();
     void startTilitapahtumat();
 
+     void setwebToken(const QString &value);
+
 private slots:
     void login_slot(QString);
 
@@ -40,6 +42,7 @@ private:
         asiakas *objectAsiakas;
         saldo * objectSaldo;
         tilitapahtumat *objectTilitapahtumat;
+        QString webToken;
 
 };
 
