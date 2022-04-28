@@ -7,13 +7,13 @@ class MySingleton
 {
 private:
     static MySingleton* instance;
-    QString name;
+    QString webToken;
 
 public:
     static MySingleton* getInstance();
 
-    QString getName() const;
-    void setName(const QString &value);
+    QString getwebToken() const;
+
 };
 
 #endif // MYSINGLETON_H
