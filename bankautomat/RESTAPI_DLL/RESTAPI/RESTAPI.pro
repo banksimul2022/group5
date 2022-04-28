@@ -13,7 +13,6 @@ CONFIG += c++11
 SOURCES += \
     asiakas.cpp \
     login.cpp \
-    mysingleton.cpp \
     myurl.cpp \
     restapi.cpp \
     saldo.cpp \
@@ -23,7 +22,6 @@ HEADERS += \
     RESTAPI_global.h \
     asiakas.h \
     login.h \
-    mysingleton.h \
     myurl.h \
     restapi.h \
     saldo.h \
