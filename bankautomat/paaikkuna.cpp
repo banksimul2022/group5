@@ -55,4 +55,3 @@ void Paaikkuna::on_Nosta_rahaa_clicked()
 {
 
 }
-
