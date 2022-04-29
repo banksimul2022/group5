@@ -47,6 +47,11 @@ void RESTAPI::startTilitapahtumat()
 
 }
 
+void RESTAPI::setwebToken(const QString &value)
+{
+    webToken = value;
+}
+
 void RESTAPI::login_slot(QString truefalse)
 {
     emit login_signal(truefalse);

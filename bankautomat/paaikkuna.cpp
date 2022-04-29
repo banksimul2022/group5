@@ -42,3 +42,10 @@ void Paaikkuna::on_naytasaldo_clicked()
 {
 
 }
+
+
+void Paaikkuna::on_Nosta_rahaa_clicked()
+{
+
+}
+

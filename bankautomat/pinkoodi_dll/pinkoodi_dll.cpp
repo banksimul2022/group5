@@ -13,6 +13,11 @@ void Pinkoodi_dll::show()
     objectpinkoodi_engine->timer->start(10000);
 }
 
+void Pinkoodi_dll::close()
+{
+    objectpinkoodi_engine->close();
+}
+
 void Pinkoodi_dll::pinkoodi_slot(QString pinkoodi)
 {
     emit pinkoodi_signal(pinkoodi);

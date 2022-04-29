@@ -13,16 +13,19 @@ SOURCES += \
     creditdebit.cpp \
     main.cpp \
     mainwindow.cpp \
+    nosta_rahaa.cpp \
     paaikkuna.cpp
 
 HEADERS += \
     creditdebit.h \
     mainwindow.h \
+    nosta_rahaa.h \
     paaikkuna.h
 
 FORMS += \
     creditdebit.ui \
     mainwindow.ui \
+    nosta_rahaa.ui \
     paaikkuna.ui
 
 # Default rules for deployment.
