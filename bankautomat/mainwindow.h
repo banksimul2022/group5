@@ -31,6 +31,7 @@ private slots:
     void pinkoodi_slot(QString);
     void startTimer();
     void login_slot(QString);
+    void tiliValittuSlot(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -40,6 +41,8 @@ private:
     QTimer * timer;
     Paaikkuna * Ppaaikkuna;
     creditdebit * pcreditdebit;
+
+    QString valinta;
 
 };
 
