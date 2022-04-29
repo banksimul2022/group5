@@ -27,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(login_signal(QString)),
             this, SLOT(login_slot(QString)));
 
+    connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
+            this,SLOT(tiliValittuSlot(QString)));
+
 }
 MainWindow::~MainWindow()
 {
@@ -80,8 +83,13 @@ void MainWindow::login_slot(QString truefalse)
     if(truefalse != "false")
     {
         pPinkoodi_dll->close();
+
         pcreditdebit->show();
     }
+}
 
+void MainWindow::tiliValittuSlot(QString tilinValinta)
+{
+  qDebug() << "Tili valittu: " + tilinValinta;
 }
 
