@@ -14,6 +14,13 @@ Paaikkuna::~Paaikkuna()
     delete ui;
 }
 
+void Paaikkuna::asetaTiedot(QString nimi, QString saldo)
+{
+  ui->nimiLabel->setText(nimi);
+  ui->saldoLabel->setText(saldo);
+}
+
+
 void Paaikkuna::on_selaatilitapahtumia_clicked()
 {
 

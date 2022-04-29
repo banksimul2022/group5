@@ -15,6 +15,8 @@ public:
     explicit Paaikkuna(QWidget *parent = nullptr);
     ~Paaikkuna();
 
+    void asetaTiedot(QString nimi, QString saldo);
+
 private slots:
     void on_selaatilitapahtumia_clicked();
 

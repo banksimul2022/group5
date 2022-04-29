@@ -22,6 +22,9 @@ private slots:
 
 private:
     Ui::creditdebit *ui;
+
+signals:
+    void tiliValittuSignal(QString);
 };
 
 #endif // CREDITDEBIT_H
