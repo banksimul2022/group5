@@ -1,6 +1,6 @@
-#include "asiakas.h"
+//#include "asiakas.h"
 
-asiakas::asiakas()
-{
+//asiakas::asiakas()
+//{
 
-}
+//}

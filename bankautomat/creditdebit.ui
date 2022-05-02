@@ -57,6 +57,19 @@
     <string>Valitse tili</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="asiakasTiedot">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>270</y>
+     <width>171</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TIEDOT</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

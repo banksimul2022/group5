@@ -8,6 +8,8 @@
 #include "tilitapahtumat.h"
 #include <qstring.h>
 #include <QObject>
+#include <QString>
+#include <QDebug>
 
 class RESTAPI_EXPORT RESTAPI:public QObject
 {
@@ -19,8 +21,7 @@ public:
     void setPin(QString kortinnumero, QString pin);
     bool getTrueFalse();
 
-    QString getAsiakas();
-    void startAsiakas();
+    void getAsiakas(QString tunnus);
 
     QString getSaldo();
     void startSaldo();
@@ -32,18 +33,24 @@ public:
 
 private slots:
     void login_slot(QString);
+    void getasiakasSlot(QNetworkReply *reply);
+
 
 signals:
     void login_signal(QString);
+    void asiakasSignal(QString);
+    void nimiToExe(QString);
 
 private:
 
+        QNetworkAccessManager * asiakasManager;
+        QNetworkReply *reply;
+        QByteArray response_data;
         Login *objectLogin;
-        asiakas *objectAsiakas;
+        //asiakas *objectAsiakas;
         saldo * objectSaldo;
         tilitapahtumat *objectTilitapahtumat;
         QString webToken;
-
 };
 
 #endif // RESTAPI_H
