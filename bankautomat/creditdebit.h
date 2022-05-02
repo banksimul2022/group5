@@ -2,6 +2,7 @@
 #define CREDITDEBIT_H
 
 #include <QDialog>
+#include "restapi.h"
 
 namespace Ui {
 class creditdebit;
@@ -17,14 +18,18 @@ public:
 
 private slots:
     void on_DEBIT_clicked();
-
     void on_CREDIT_clicked();
+    void on_asiakasTiedot_clicked();
+
 
 private:
     Ui::creditdebit *ui;
+    RESTAPI * pRESTAPI_DLL;
 
 signals:
     void tiliValittuSignal(QString);
+    void asiakasSignal(QString);
+
 };
 
 #endif // CREDITDEBIT_H
