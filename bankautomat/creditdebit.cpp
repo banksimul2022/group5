@@ -17,6 +17,7 @@ creditdebit::~creditdebit()
 void creditdebit::on_DEBIT_clicked()
 {
     emit tiliValittuSignal("debit");
+
 }
 
 

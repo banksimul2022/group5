@@ -104,7 +104,12 @@ void MainWindow::login_slot(QString truefalse)
 
 void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
+<<<<<<< HEAD
     qDebug() << "Tili valittu: " + tilinValinta;
+=======
+  qDebug() << "Tili valittu: " + tilinValinta;
+  Ppaaikkuna->show();
+>>>>>>> b64129f1ba95757e6da6a1d41dbde844cf11d6c9
 }
 
 void MainWindow::getasiakasSlot(QString tunnus)
