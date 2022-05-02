@@ -2,6 +2,8 @@
 #define PAAIKKUNA_H
 
 #include <QDialog>
+#include "nosta_rahaa.h"
+
 
 namespace Ui {
 class Paaikkuna;
@@ -32,6 +34,7 @@ private slots:
 
 private:
     Ui::Paaikkuna *ui;
+    nosta_rahaa * pnosta_rahaa;
 
 };
 

@@ -12,3 +12,9 @@ nosta_rahaa::~nosta_rahaa()
 {
     delete ui;
 }
+
+void nosta_rahaa::on_Sulje_btn_clicked()
+{
+    window()->close();
+}
+

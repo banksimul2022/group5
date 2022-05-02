@@ -110,6 +110,8 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
   Ppaaikkuna->show();
 
 }
+<<<<<<< HEAD
+=======
 
 void MainWindow::getasiakasSlot(QString tunnus)
 {
@@ -117,3 +119,4 @@ void MainWindow::getasiakasSlot(QString tunnus)
 }
 
 
+>>>>>>> 7600a237285e7346a7f686dfb873e4963281b852
