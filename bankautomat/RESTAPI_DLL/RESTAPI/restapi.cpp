@@ -6,8 +6,6 @@ RESTAPI::RESTAPI()
 
         objectLogin = new Login;
         //objectAsiakas = new asiakas;
-        objectSaldo = new saldo;
-        objectTilitapahtumat = new tilitapahtumat;
 
         connect(objectLogin, SIGNAL(getTrueFalse(QString)),
                 this, SLOT(login_slot(QString)));

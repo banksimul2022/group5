@@ -2,10 +2,7 @@
 #define RESTAPI_H
 
 #include "RESTAPI_global.h"
-#include "asiakas.h"
 #include "login.h"
-#include "saldo.h"
-#include "tilitapahtumat.h"
 #include <qstring.h>
 #include <QObject>
 #include <QString>
@@ -47,9 +44,6 @@ private:
         QNetworkReply *reply;
         QByteArray response_data;
         Login *objectLogin;
-        //asiakas *objectAsiakas;
-        saldo * objectSaldo;
-        tilitapahtumat *objectTilitapahtumat;
         QString webToken;
 };
 
