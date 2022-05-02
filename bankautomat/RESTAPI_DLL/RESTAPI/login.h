@@ -2,7 +2,6 @@
 #define LOGIN_H
 
 #include "myurl.h"
-
 #include <QObject>
 #include <QtNetwork>
 #include <QNetworkAccessManager>
