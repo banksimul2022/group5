@@ -25,6 +25,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void haenimi(QString);
+
+signals:
+    void asiakasSignal(QString);
+
 private slots:
     void on_HYVAKSY_clicked();
     void RFID_slot(QByteArray);
@@ -32,6 +38,7 @@ private slots:
     void startTimer();
     void login_slot(QString);
     void tiliValittuSlot(QString);
+    void getasiakasSlot(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -41,8 +48,9 @@ private:
     QTimer * timer;
     Paaikkuna * Ppaaikkuna;
     creditdebit * pcreditdebit;
-
+    QString asiakas;
     QString valinta;
+    QString asiakkaannimi;
 
 };
 

@@ -1,7 +1,6 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "paaikkuna.h"
-#include "creditdebit.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,6 +26,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(login_signal(QString)),
             this, SLOT(login_slot(QString)));
 
+    connect(pRESTAPI_DLL, SIGNAL(asiakasSignal(QString)),
+            this, SLOT(getasiakasSlot(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString)),
+            this, SLOT(haenimi(QString)));
+
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
 
@@ -41,6 +46,9 @@ MainWindow::~MainWindow()
     delete pPinkoodi_dll;
     pPinkoodi_dll = nullptr;
 
+    delete  pRESTAPI_DLL;
+    pRESTAPI_DLL = nullptr;
+
     delete timer;
     timer = nullptr;
 
@@ -52,9 +60,15 @@ MainWindow::~MainWindow()
 
 }
 
+void MainWindow::haenimi(QString nimi)
+{
+    asiakkaannimi = nimi;
+}
+
 void MainWindow::on_HYVAKSY_clicked()
 {
-     pPinkoodi_dll->show();
+    pPinkoodi_dll->show();
+    pRESTAPI_DLL->getAsiakas(asiakas);
 
 }
 
@@ -90,6 +104,12 @@ void MainWindow::login_slot(QString truefalse)
 
 void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
-  qDebug() << "Tili valittu: " + tilinValinta;
+    qDebug() << "Tili valittu: " + tilinValinta;
 }
+
+void MainWindow::getasiakasSlot(QString tunnus)
+{
+    qDebug() << "hauskaa" + tunnus;
+}
+
 
