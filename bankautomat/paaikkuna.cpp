@@ -6,6 +6,7 @@ Paaikkuna::Paaikkuna(QWidget *parent) :
     ui(new Ui::Paaikkuna)
 {
     ui->setupUi(this);
+    pnosta_rahaa = new nosta_rahaa;
 
 }
 
@@ -53,5 +54,5 @@ void Paaikkuna::on_naytasaldo_clicked()
 
 void Paaikkuna::on_Nosta_rahaa_clicked()
 {
-
+    pnosta_rahaa->show();
 }

@@ -93,4 +93,3 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
   qDebug() << "Tili valittu: " + tilinValinta;
   Ppaaikkuna->show();
 }
-
