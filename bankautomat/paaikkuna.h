@@ -18,7 +18,9 @@ class Paaikkuna : public QDialog
 public:
     explicit Paaikkuna(QWidget *parent = nullptr);
     ~Paaikkuna();
-    void asetaTiedot(QString nimi, QString saldo);
+    void asetaNimi(QString nimi);
+    //void asetaSaldo(QString saldo);
+    void asetaVelka(QString velka);
 
 
 private slots:

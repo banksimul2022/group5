@@ -31,6 +31,7 @@ public slots:
 
 signals:
     void asiakasSignal(QString);
+    void creditSignal(QString);
 
 private slots:
     void on_HYVAKSY_clicked();
@@ -41,6 +42,8 @@ private slots:
     void tiliValittuSlot(QString);
     void getasiakasSlot(QString);
     void haenimi(QString,QString);
+    void getcreditSlot(QString);
+    void haevelka(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -51,6 +54,7 @@ private:
     Paaikkuna * Ppaaikkuna;
     creditdebit * pcreditdebit;
     QString asiakas;
+    QString credit;
     QString valinta;
 
 

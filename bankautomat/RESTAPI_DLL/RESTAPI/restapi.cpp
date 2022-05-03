@@ -62,11 +62,49 @@ void RESTAPI::getasiakasSlot(QNetworkReply *reply)
            QJsonObject json_obj = value.toObject();
            etunimi+= json_obj["Etunimi"].toString();
            sukunimi+= json_obj["Sukunimi"].toString();
-           qDebug()<<etunimi;
+           qDebug()<<etunimi+" "+sukunimi;
            emit nimiToExe(etunimi,sukunimi);
      }
      reply->deleteLater();
      asiakasManager->deleteLater();
+}
+
+void RESTAPI::getCredit(QString tilinnumero)
+{
+    QString site_url="http://localhost:3000/credittili/1";
+    site_url.append(tilinnumero);
+    qDebug() << site_url;
+    QNetworkRequest request((site_url));
+
+    QByteArray wtoken="Bearer "+webToken;
+    request.setRawHeader(QByteArray("Authorization"),(wtoken));
+
+    creditManager = new QNetworkAccessManager(this);
+    connect(creditManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getcreditSlot(QNetworkReply*)));
+    reply = creditManager->get(request);
+}
+
+void RESTAPI::getcreditSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+     qDebug()<<"DATA : "+response_data;
+     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+     QJsonArray json_array = json_doc.array();
+     QString tilinnumero;
+     foreach (const QJsonValue &value, json_array) {
+        QJsonObject json_obj = value.toObject();
+        tilinnumero+= QString::number(json_obj["Tilinnumero"].toInt());
+        emit creditSignal(tilinnumero);
+     }
+     QString velka;
+     foreach (const QJsonValue &value, json_array) {
+           QJsonObject json_obj = value.toObject();
+           velka+=QString::number((json_obj["Velka"].toInt()));
+           qDebug()<<"velka on "+velka;
+           emit velkaToExe(velka);
+     }
+     reply->deleteLater();
+     creditManager->deleteLater();
 }
 
 

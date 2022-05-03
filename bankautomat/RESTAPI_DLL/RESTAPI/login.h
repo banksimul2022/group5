@@ -22,12 +22,10 @@ private:
     QNetworkAccessManager * postManager;
     QNetworkReply *reply;
     QByteArray response_data;
-
     QString Kortinnumero;
     QString PIN;
     QString trueFalse;
     QByteArray token;
-
     MyUrl * objectMyUrl;
     QString base_url;
 

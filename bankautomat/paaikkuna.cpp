@@ -10,8 +10,8 @@ Paaikkuna::Paaikkuna(QWidget *parent) :
     ptalleta_rahaa = new talleta_rahaa;
     pRESTAPI_DLL = new RESTAPI;
 
-    connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString)),
-        this, SLOT(haenimi(QString)));
+    /*connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString)),
+        this, SLOT(haenimi(QString)));*/
 
 }
 
@@ -23,10 +23,19 @@ Paaikkuna::~Paaikkuna()
     pRESTAPI_DLL = nullptr;
 }
 
-void Paaikkuna::asetaTiedot(QString nimi, QString saldo)
+void Paaikkuna::asetaNimi(QString nimi)
 {
-  ui->saldoLabel->setText(saldo);
   ui->nimiLabel->setText(nimi);
+}
+
+/*void Paaikkuna::asetaSaldo(QString nimi)
+{
+  ui->nimiLabel->setText(nimi);
+}*/
+
+void Paaikkuna::asetaVelka(QString velka)
+{
+  ui->saldoLabel->setText(velka);
 }
 
 void Paaikkuna::on_selaatilitapahtumia_clicked()
