@@ -40,6 +40,7 @@ private slots:
     void login_slot(QByteArray);
     void tiliValittuSlot(QString);
     void getasiakasSlot(QString);
+    void haenimi(QString,QString);
 
 private:
     Ui::MainWindow *ui;

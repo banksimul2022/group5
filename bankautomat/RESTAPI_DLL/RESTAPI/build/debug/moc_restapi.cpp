@@ -65,16 +65,16 @@ static const uint qt_meta_data_RESTAPI[] = {
  // signals: name, argc, parameters, tag, flags
        1,    1,   39,    2, 0x06 /* Public */,
        3,    1,   42,    2, 0x06 /* Public */,
-       4,    1,   45,    2, 0x06 /* Public */,
+       4,    2,   45,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    1,   48,    2, 0x08 /* Private */,
-       6,    1,   51,    2, 0x08 /* Private */,
+       5,    1,   50,    2, 0x08 /* Private */,
+       6,    1,   53,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QByteArray,    2,
     QMetaType::Void, QMetaType::QString,    2,
-    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,    2,    2,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QByteArray,    2,
@@ -91,7 +91,7 @@ void RESTAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         switch (_id) {
         case 0: _t->login_signal((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 1: _t->asiakasSignal((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->nimiToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->nimiToExe((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 3: _t->login_slot((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 4: _t->getasiakasSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
@@ -124,7 +124,7 @@ void RESTAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
         }
         {
-            using _t = void (RESTAPI::*)(QString );
+            using _t = void (RESTAPI::*)(QString , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RESTAPI::nimiToExe)) {
                 *result = 2;
                 return;
@@ -188,9 +188,9 @@ void RESTAPI::asiakasSignal(QString _t1)
 }
 
 // SIGNAL 2
-void RESTAPI::nimiToExe(QString _t1)
+void RESTAPI::nimiToExe(QString _t1, QString _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP

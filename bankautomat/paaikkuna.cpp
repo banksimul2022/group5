@@ -26,13 +26,7 @@ Paaikkuna::~Paaikkuna()
 void Paaikkuna::asetaTiedot(QString nimi, QString saldo)
 {
   ui->saldoLabel->setText(saldo);
-}
-
-void Paaikkuna::haenimi(QString nimi)
-{
-    asiakkaannimi = nimi;
-    ui->nimiLabel->setText(asiakkaannimi);
-
+  ui->nimiLabel->setText(nimi);
 }
 
 void Paaikkuna::on_selaatilitapahtumia_clicked()

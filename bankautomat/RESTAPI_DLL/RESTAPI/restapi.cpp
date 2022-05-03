@@ -57,11 +57,13 @@ void RESTAPI::getasiakasSlot(QNetworkReply *reply)
         asiakas+= QString::number(json_obj["tunnus"].toInt());
         emit asiakasSignal(asiakas);
      }
-     QString nimi;
+     QString etunimi, sukunimi;
      foreach (const QJsonValue &value, json_array) {
            QJsonObject json_obj = value.toObject();
-           nimi+= json_obj["Etunimi"].toString();
-           emit nimiToExe(nimi);
+           etunimi+= json_obj["Etunimi"].toString();
+           sukunimi+= json_obj["Sukunimi"].toString();
+           qDebug()<<etunimi;
+           emit nimiToExe(etunimi,sukunimi);
      }
      reply->deleteLater();
      asiakasManager->deleteLater();
