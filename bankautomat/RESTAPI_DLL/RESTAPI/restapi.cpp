@@ -45,6 +45,21 @@ void RESTAPI::getAsiakas(QString tunnus)
     reply = asiakasManager->get(request);
 }
 
+void RESTAPI::getSaldo(QString tunnus)
+{
+    QString site_url="http://localhost:3000/debittili/ "+tunnus;
+    site_url.append(tunnus);
+    qDebug() << site_url;
+    QNetworkRequest request((site_url));
+
+    QByteArray wtoken="Bearer "+webToken;
+    request.setRawHeader(QByteArray("Authorization"),(wtoken));
+
+    debitManager = new QNetworkAccessManager(this);
+    connect(debitManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getSaldoSlot(QNetworkReply*)));
+    reply = debitManager->get(request);
+}
+
 void RESTAPI::getasiakasSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
@@ -69,6 +84,7 @@ void RESTAPI::getasiakasSlot(QNetworkReply *reply)
      asiakasManager->deleteLater();
 }
 
+<<<<<<< HEAD
 void RESTAPI::getCredit(QString tilinnumero)
 {
     QString site_url="http://localhost:3000/credittili/1";
@@ -85,11 +101,15 @@ void RESTAPI::getCredit(QString tilinnumero)
 }
 
 void RESTAPI::getcreditSlot(QNetworkReply *reply)
+=======
+void RESTAPI::getSaldoSlot(QNetworkReply *reply)
+>>>>>>> 4dbcf35420d3d770701ec897e020384ad2174682
 {
     response_data=reply->readAll();
      qDebug()<<"DATA : "+response_data;
      QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
      QJsonArray json_array = json_doc.array();
+<<<<<<< HEAD
      QString tilinnumero;
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
@@ -105,6 +125,23 @@ void RESTAPI::getcreditSlot(QNetworkReply *reply)
      }
      reply->deleteLater();
      creditManager->deleteLater();
+=======
+     QString Tilinnumero;
+     foreach (const QJsonValue &value, json_array) {
+        QJsonObject json_obj = value.toObject();
+        Tilinnumero+= QString::number(json_obj["tunnus"].toInt());
+        emit debitSignal(Tilinnumero);
+     }
+     QString saldo;
+     foreach (const QJsonValue &value, json_array) {
+           QJsonObject json_obj = value.toObject();
+           saldo+= json_obj["Saldo"].toString();
+           qDebug()<<saldo;
+           emit saldoToExe(saldo);
+     }
+     reply->deleteLater();
+     debitManager->deleteLater();
+>>>>>>> 4dbcf35420d3d770701ec897e020384ad2174682
 }
 
 

@@ -21,7 +21,7 @@ public:
     void getAsiakas(QString tunnus);
     void getCredit(QString tilinnumero);
 
-    QString getSaldo();
+    void getSaldo(QString tunnus);
     void startSaldo();
 
     QString getTilitapahtumat();
@@ -32,7 +32,11 @@ public:
 private slots:
     void login_slot(QByteArray);
     void getasiakasSlot(QNetworkReply *reply);
+<<<<<<< HEAD
     void getcreditSlot (QNetworkReply *reply);
+=======
+    void getSaldoSlot(QNetworkReply *reply);
+>>>>>>> 4dbcf35420d3d770701ec897e020384ad2174682
 
 
 signals:
@@ -40,12 +44,21 @@ signals:
     void creditSignal(QString);
     void asiakasSignal(QString);
     void nimiToExe(QString,QString);
+<<<<<<< HEAD
     void velkaToExe(QString);
+=======
+    void debitSignal(QString);
+    void saldoToExe(QString);
+>>>>>>> 4dbcf35420d3d770701ec897e020384ad2174682
 
 private:
 
         QNetworkAccessManager * asiakasManager;
+<<<<<<< HEAD
         QNetworkAccessManager * creditManager;
+=======
+        QNetworkAccessManager * debitManager;
+>>>>>>> 4dbcf35420d3d770701ec897e020384ad2174682
         QNetworkReply *reply;
         QByteArray response_data;
         Login *objectLogin;

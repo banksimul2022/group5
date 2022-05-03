@@ -42,8 +42,12 @@ private slots:
     void tiliValittuSlot(QString);
     void getasiakasSlot(QString);
     void haenimi(QString,QString);
+<<<<<<< HEAD
     void getcreditSlot(QString);
     void haevelka(QString);
+=======
+    void saldoSlot(QString);
+>>>>>>> 4dbcf35420d3d770701ec897e020384ad2174682
 
 private:
     Ui::MainWindow *ui;
