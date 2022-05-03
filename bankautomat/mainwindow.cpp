@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pPinkoodi_dll, SIGNAL(pinkoodi_signal(QString)),
                 this, SLOT(pinkoodi_slot(QString)));
 
-    connect(pRESTAPI_DLL, SIGNAL(login_signal(QString)),
-            this, SLOT(login_slot(QString)));
+    connect(pRESTAPI_DLL, SIGNAL(login_signal(QByteArray)),
+            this, SLOT(login_slot(QByteArray)));
 
     connect(pRESTAPI_DLL, SIGNAL(asiakasSignal(QString)),
             this, SLOT(getasiakasSlot(QString)));
@@ -60,16 +60,9 @@ MainWindow::~MainWindow()
 
 }
 
-void MainWindow::haenimi(QString nimi)
-{
-    asiakkaannimi = nimi;
-}
-
 void MainWindow::on_HYVAKSY_clicked()
 {
     pPinkoodi_dll->show();
-    pRESTAPI_DLL->getAsiakas(asiakas);
-
 }
 
 void MainWindow::RFID_slot(QByteArray)
@@ -90,9 +83,10 @@ void MainWindow::startTimer()
     timer->start(10000);
 }
 
-void MainWindow::login_slot(QString truefalse)
+void MainWindow::login_slot(QByteArray truefalse)
 {
     qDebug()<< "login slotissa: " + truefalse;
+    pRESTAPI_DLL->setwebToken(truefalse);
 
     if(truefalse.length() > 5)
     {
@@ -114,6 +108,7 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
     qDebug() << "Tili valittu: " + tilinValinta;
 
+    pRESTAPI_DLL->getAsiakas(asiakas);
     Ppaaikkuna->show();
 
 }
