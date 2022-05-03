@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-//app.use(authenticateToken);
+app.use(authenticateToken);
 app.use('/Asiakas', AsiakasRouter);
 app.use('/Tilitapahtumat', TilitapahtumatRouter);
 app.use('/CreditTili', CreditTiliRouter);
