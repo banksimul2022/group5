@@ -123,3 +123,8 @@ void MainWindow::haenimi(QString nimi, QString sukunimi)
     Ppaaikkuna->asetaTiedot(nimi, NULL);
 }
 
+void MainWindow::saldoSlot(QString saldo)
+{
+    Ppaaikkuna->asetaTiedot(saldo, NULL);
+}
+
