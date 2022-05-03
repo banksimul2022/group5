@@ -32,17 +32,26 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(creditSignal(QString)),
             this, SLOT(getcreditSlot(QString)));
 
+    connect(pRESTAPI_DLL, SIGNAL(debitSignal(QString)),
+            this, SLOT(getcreditSlot(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(tapahtumaSignal(QString)),
+            this,SLOT(gettapahtumaSlot(QString)));
+
     connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString,QString)),
             this, SLOT(haenimi(QString,QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(velkaToExe(QString)),
             this, SLOT(haevelka(QString)));
 
+    connect(pRESTAPI_DLL, SIGNAL(saldoToExe(QString)),
+            this,SLOT(haesaldo(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(tapahtumaToExe(QString)),
+            this,SLOT(haetapahtuma(QString)));
+
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
-
-    connect(pRESTAPI_DLL, SIGNAL(saldoToExe(QString)),
-            this,SLOT(saldoSlot(QString)));
 
 }
 MainWindow::~MainWindow()
@@ -115,11 +124,58 @@ void MainWindow::login_slot(QByteArray truefalse)
 void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
     qDebug() << "Tili valittu: " + tilinValinta;
-
     pRESTAPI_DLL->getAsiakas(asiakas);
-    pRESTAPI_DLL->getCredit(credit);
-    Ppaaikkuna->show();
 
+    if(tilinValinta=="credit")    {
+        pRESTAPI_DLL->getCredit(credit);
+        Ppaaikkuna->show();
+    }
+
+    if(tilinValinta=="debit") {
+        pRESTAPI_DLL->getDebit(debit);
+        pRESTAPI_DLL->getTapahtuma(tilitapahtuma);
+        Ppaaikkuna->show();
+    }
+}
+
+void MainWindow::haenimi(QString nimi, QString sukunimi)
+{
+    nimi = nimi+" " + sukunimi;
+    Ppaaikkuna->asetaNimi(nimi);
+
+    if(Ppaaikkuna->isMinimized()) {
+        Ppaaikkuna->asetaNimi(nullptr);
+    }
+}
+
+void MainWindow::haevelka(QString velka)
+{
+    velka = velka+" €";
+    Ppaaikkuna->asetaVelka(velka);
+
+    if(Ppaaikkuna->isMinimized()) {
+        Ppaaikkuna->asetaVelka(nullptr);
+    }
+}
+
+void MainWindow::haesaldo(QString saldo)
+{
+    saldo = saldo+" €";
+    Ppaaikkuna->asetaSaldo(saldo);
+
+    if(Ppaaikkuna->isMinimized()) {
+        Ppaaikkuna->asetaSaldo(nullptr);
+    }
+}
+
+void MainWindow::haetapahtuma(QString tapahtumat)
+{
+    Ppaaikkuna->asetaTapahtuma(tapahtumat);
+}
+
+void MainWindow::gettapahtumaSlot(QString id)
+{
+    id = 1;
 }
 
 void MainWindow::getasiakasSlot(QString tunnus)
@@ -127,25 +183,12 @@ void MainWindow::getasiakasSlot(QString tunnus)
     tunnus = 1;
 }
 
-void MainWindow::getcreditSlot(QString tilinnumero)
+void MainWindow::getcreditSlot(QString ctilinnumero)
 {
-    tilinnumero = 1;
+    ctilinnumero = 1;
 }
 
-void MainWindow::haenimi(QString nimi, QString sukunimi)
+void MainWindow::getdebitSlot(QString dtilinnumero)
 {
-    nimi = nimi+" " + sukunimi;
-    Ppaaikkuna->asetaNimi(nimi);
+    dtilinnumero = 1;
 }
-
-void MainWindow::haevelka(QString velka)
-{
-    velka = velka+" €";
-    Ppaaikkuna->asetaVelka(velka);
-}
-
-void MainWindow::saldoSlot(QString saldo)
-{
-    Ppaaikkuna->asetaTiedot(saldo, NULL);
-}
-

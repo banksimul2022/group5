@@ -28,10 +28,16 @@ public:
     ~MainWindow();
 
 public slots:
+    void haenimi(QString,QString);
+    void haevelka(QString);
+    void haesaldo(QString);
+    void haetapahtuma(QString);
 
 signals:
     void asiakasSignal(QString);
     void creditSignal(QString);
+    void debitSignal(QString);
+    void tapahtumaSignal(QString);
 
 private slots:
     void on_HYVAKSY_clicked();
@@ -41,13 +47,9 @@ private slots:
     void login_slot(QByteArray);
     void tiliValittuSlot(QString);
     void getasiakasSlot(QString);
-    void haenimi(QString,QString);
-<<<<<<< HEAD
     void getcreditSlot(QString);
-    void haevelka(QString);
-=======
-    void saldoSlot(QString);
->>>>>>> 4dbcf35420d3d770701ec897e020384ad2174682
+    void getdebitSlot(QString);
+    void gettapahtumaSlot(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -58,10 +60,10 @@ private:
     Paaikkuna * Ppaaikkuna;
     creditdebit * pcreditdebit;
     QString asiakas;
+    QString tilitapahtuma;
     QString credit;
+    QString debit;
     QString valinta;
-
-
 };
 
 #endif // MAINWINDOW_H

@@ -24,9 +24,4 @@ void creditdebit::on_CREDIT_clicked()
     emit tiliValittuSignal("credit");
 }
 
-void creditdebit::on_asiakasTiedot_clicked()
-{
-
-}
-
 
