@@ -20,27 +20,31 @@ public:
 
     void getAsiakas(QString tunnus);
 
-    QString getSaldo();
+    void getSaldo(QString tunnus);
     void startSaldo();
 
     QString getTilitapahtumat();
     void startTilitapahtumat();
 
-     void setwebToken(const QByteArray &value);
+    void setwebToken(const QByteArray &value);
 
 private slots:
     void login_slot(QByteArray);
     void getasiakasSlot(QNetworkReply *reply);
+    void getSaldoSlot(QNetworkReply *reply);
 
 
 signals:
     void login_signal(QByteArray);
     void asiakasSignal(QString);
     void nimiToExe(QString,QString);
+    void debitSignal(QString);
+    void saldoToExe(QString);
 
 private:
 
         QNetworkAccessManager * asiakasManager;
+        QNetworkAccessManager * debitManager;
         QNetworkReply *reply;
         QByteArray response_data;
         Login *objectLogin;
