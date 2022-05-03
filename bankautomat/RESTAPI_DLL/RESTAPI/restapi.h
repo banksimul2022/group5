@@ -36,7 +36,7 @@ private slots:
 signals:
     void login_signal(QByteArray);
     void asiakasSignal(QString);
-    void nimiToExe(QString);
+    void nimiToExe(QString,QString);
 
 private:
 

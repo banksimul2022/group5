@@ -29,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(asiakasSignal(QString)),
             this, SLOT(getasiakasSlot(QString)));
 
-    connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString)),
-            this, SLOT(haenimi(QString)));
+    connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString,QString)),
+            this, SLOT(haenimi(QString,QString)));
 
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
@@ -92,7 +92,6 @@ void MainWindow::login_slot(QByteArray truefalse)
     {
 
         pPinkoodi_dll->close();
-        qDebug()<< "login slotissa: " + truefalse;
 
         pcreditdebit->show();
 
@@ -115,6 +114,12 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
 
 void MainWindow::getasiakasSlot(QString tunnus)
 {
-    qDebug() << "hauskaa" + tunnus;
+
+}
+
+void MainWindow::haenimi(QString nimi, QString sukunimi)
+{
+    nimi = nimi+" " + sukunimi;
+    Ppaaikkuna->asetaTiedot(nimi, NULL);
 }
 
