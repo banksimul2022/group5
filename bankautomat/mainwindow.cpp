@@ -29,8 +29,14 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(asiakasSignal(QString)),
             this, SLOT(getasiakasSlot(QString)));
 
+    connect(pRESTAPI_DLL, SIGNAL(creditSignal(QString)),
+            this, SLOT(getcreditSlot(QString)));
+
     connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString,QString)),
             this, SLOT(haenimi(QString,QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(velkaToExe(QString)),
+            this, SLOT(haevelka(QString)));
 
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
@@ -111,19 +117,31 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
     qDebug() << "Tili valittu: " + tilinValinta;
 
     pRESTAPI_DLL->getAsiakas(asiakas);
+    pRESTAPI_DLL->getCredit(credit);
     Ppaaikkuna->show();
 
 }
 
 void MainWindow::getasiakasSlot(QString tunnus)
 {
+    tunnus = 1;
+}
 
+void MainWindow::getcreditSlot(QString tilinnumero)
+{
+    tilinnumero = 1;
 }
 
 void MainWindow::haenimi(QString nimi, QString sukunimi)
 {
     nimi = nimi+" " + sukunimi;
-    Ppaaikkuna->asetaTiedot(nimi, NULL);
+    Ppaaikkuna->asetaNimi(nimi);
+}
+
+void MainWindow::haevelka(QString velka)
+{
+    velka = velka+" €";
+    Ppaaikkuna->asetaVelka(velka);
 }
 
 void MainWindow::saldoSlot(QString saldo)
