@@ -35,6 +35,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
 
+    connect(pRESTAPI_DLL, SIGNAL(saldoToExe(QString)),
+            this,SLOT(saldoSlot(QString)));
+
 }
 MainWindow::~MainWindow()
 {
