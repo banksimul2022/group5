@@ -28,7 +28,6 @@ public:
     ~MainWindow();
 
 public slots:
-    void haenimi(QString);
 
 signals:
     void asiakasSignal(QString);
@@ -38,7 +37,7 @@ private slots:
     void RFID_slot(QByteArray);
     void pinkoodi_slot(QString);
     void startTimer();
-    void login_slot(QString);
+    void login_slot(QByteArray);
     void tiliValittuSlot(QString);
     void getasiakasSlot(QString);
 
@@ -52,7 +51,7 @@ private:
     creditdebit * pcreditdebit;
     QString asiakas;
     QString valinta;
-    QString asiakkaannimi;
+
 
 };
 

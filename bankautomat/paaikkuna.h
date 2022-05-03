@@ -2,6 +2,7 @@
 #define PAAIKKUNA_H
 
 #include <QDialog>
+#include <restapi.h>
 #include "nosta_rahaa.h"
 #include "talleta_rahaa.h"
 
@@ -18,9 +19,15 @@ public:
     explicit Paaikkuna(QWidget *parent = nullptr);
     ~Paaikkuna();
 
+
+
+public slots:
+
     void asetaTiedot(QString nimi, QString saldo);
+    void haenimi(QString nimi);
 
 private slots:
+
     void on_selaatilitapahtumia_clicked();
 
     void on_kirjaudu_ulos_clicked();
@@ -33,6 +40,8 @@ private:
     Ui::Paaikkuna *ui;
     nosta_rahaa * pnosta_rahaa;
     talleta_rahaa * ptalleta_rahaa;
+    RESTAPI * pRESTAPI_DLL;
+    QString asiakkaannimi;
 
 };
 

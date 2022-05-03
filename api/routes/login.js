@@ -20,8 +20,7 @@ router.post('/',
           else{
             if (dbResult.length > 0) {
               bcrypt.compare(PIN,dbResult[0].PIN, function(err,compareResult) {
-                if (true) {
-                //if(compareResult) {
+                if(compareResult) {
                   console.log("succes");
                   const token = generateAccessToken({ Kortinnumero: Kortinnumero });
                   response.send(token);

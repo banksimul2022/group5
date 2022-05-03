@@ -65,7 +65,7 @@ static const uint qt_meta_data_Login[] = {
        3,    1,   27,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QByteArray,    2,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 4,    5,
@@ -79,7 +79,7 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         auto *_t = static_cast<Login *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->getTrueFalse((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 0: _t->getTrueFalse((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 1: _t->loginSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
         }
@@ -97,7 +97,7 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Login::*)(QString );
+            using _t = void (Login::*)(QByteArray );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Login::getTrueFalse)) {
                 *result = 0;
                 return;
@@ -147,7 +147,7 @@ int Login::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Login::getTrueFalse(QString _t1)
+void Login::getTrueFalse(QByteArray _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

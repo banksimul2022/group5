@@ -7,8 +7,8 @@ RESTAPI::RESTAPI()
         objectLogin = new Login;
         //objectAsiakas = new asiakas;
 
-        connect(objectLogin, SIGNAL(getTrueFalse(QString)),
-                this, SLOT(login_slot(QString)));
+        connect(objectLogin, SIGNAL(getTrueFalse(QByteArray)),
+                this, SLOT(login_slot(QByteArray)));
 }
 
 RESTAPI::~RESTAPI()
@@ -36,6 +36,10 @@ void RESTAPI::getAsiakas(QString tunnus)
     site_url.append(tunnus);
     qDebug() << site_url;
     QNetworkRequest request((site_url));
+
+    QByteArray wtoken="Bearer "+webToken;
+    request.setRawHeader(QByteArray("Authorization"),(wtoken));
+
     asiakasManager = new QNetworkAccessManager(this);
     connect(asiakasManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getasiakasSlot(QNetworkReply*)));
     reply = asiakasManager->get(request);
@@ -74,12 +78,12 @@ void RESTAPI::startTilitapahtumat()
 
 }
 
-void RESTAPI::setwebToken(const QString &value)
+void RESTAPI::setwebToken(const QByteArray &value)
 {
     webToken = value;
 }
 
-void RESTAPI::login_slot(QString truefalse)
+void RESTAPI::login_slot(QByteArray truefalse)
 {
     emit login_signal(truefalse);
 }

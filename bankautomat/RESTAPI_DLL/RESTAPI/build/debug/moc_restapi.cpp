@@ -72,12 +72,12 @@ static const uint qt_meta_data_RESTAPI[] = {
        6,    1,   51,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QByteArray,    2,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QByteArray,    2,
     QMetaType::Void, 0x80000000 | 7,    8,
 
        0        // eod
@@ -89,10 +89,10 @@ void RESTAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<RESTAPI *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->login_signal((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 0: _t->login_signal((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 1: _t->asiakasSignal((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 2: _t->nimiToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 3: _t->login_slot((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->login_slot((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 4: _t->getasiakasSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
         }
@@ -110,7 +110,7 @@ void RESTAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (RESTAPI::*)(QString );
+            using _t = void (RESTAPI::*)(QByteArray );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RESTAPI::login_signal)) {
                 *result = 0;
                 return;
@@ -174,7 +174,7 @@ int RESTAPI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void RESTAPI::login_signal(QString _t1)
+void RESTAPI::login_signal(QByteArray _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

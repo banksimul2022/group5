@@ -26,15 +26,15 @@ public:
     QString getTilitapahtumat();
     void startTilitapahtumat();
 
-     void setwebToken(const QString &value);
+     void setwebToken(const QByteArray &value);
 
 private slots:
-    void login_slot(QString);
+    void login_slot(QByteArray);
     void getasiakasSlot(QNetworkReply *reply);
 
 
 signals:
-    void login_signal(QString);
+    void login_signal(QByteArray);
     void asiakasSignal(QString);
     void nimiToExe(QString);
 
@@ -44,7 +44,7 @@ private:
         QNetworkReply *reply;
         QByteArray response_data;
         Login *objectLogin;
-        QString webToken;
+        QByteArray webToken;
 };
 
 #endif // RESTAPI_H

@@ -32,7 +32,7 @@ private:
     QString base_url;
 
 signals:
-    void getTrueFalse(QString);
+    void getTrueFalse(QByteArray);
 };
 
 #endif // LOGIN_H
