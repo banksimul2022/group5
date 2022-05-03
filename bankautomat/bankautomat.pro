@@ -14,19 +14,22 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     nosta_rahaa.cpp \
-    paaikkuna.cpp
+    paaikkuna.cpp \
+    talleta_rahaa.cpp
 
 HEADERS += \
     creditdebit.h \
     mainwindow.h \
     nosta_rahaa.h \
-    paaikkuna.h
+    paaikkuna.h \
+    talleta_rahaa.h
 
 FORMS += \
     creditdebit.ui \
     mainwindow.ui \
     nosta_rahaa.ui \
-    paaikkuna.ui
+    paaikkuna.ui \
+    talleta_rahaa.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

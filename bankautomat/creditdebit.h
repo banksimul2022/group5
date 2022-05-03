@@ -2,6 +2,7 @@
 #define CREDITDEBIT_H
 
 #include <QDialog>
+#include <QTimer>
 #include "restapi.h"
 
 namespace Ui {
@@ -20,7 +21,6 @@ private slots:
     void on_DEBIT_clicked();
     void on_CREDIT_clicked();
     void on_asiakasTiedot_clicked();
-
 
 private:
     Ui::creditdebit *ui;

@@ -13,6 +13,7 @@ public:
     Pinkoodi_dll();
     void show();
     void close();
+    void pinkoodi_vaarin();
 
 private slots:
     void pinkoodi_slot(QString);
@@ -22,7 +23,6 @@ signals:
 
 private:
     pinkoodi_engine *objectpinkoodi_engine;
-
 };
 
 #endif // PINKOODI_DLL_H
