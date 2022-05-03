@@ -2,11 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
+
 #include "rfid_dll.h"
 #include "pinkoodi_dll.h"
-#include "pinkoodi_engine.h"
 #include "restapi.h"
-#include <QTimer>
+#include "pinkoodi_engine.h"
+
 #include "paaikkuna.h"
 #include "creditdebit.h"
 

@@ -94,11 +94,19 @@ void MainWindow::login_slot(QString truefalse)
 {
     qDebug()<< "login slotissa: " + truefalse;
 
-    if(truefalse != "false")
+    if(truefalse.length() > 5)
     {
+
         pPinkoodi_dll->close();
+        qDebug()<< "login slotissa: " + truefalse;
 
         pcreditdebit->show();
+
+    }
+    else if(truefalse == "false")
+    {
+        qDebug()<<"vaara pinkoodi";
+        pPinkoodi_dll->pinkoodi_vaarin();
     }
 }
 
@@ -106,17 +114,12 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
     qDebug() << "Tili valittu: " + tilinValinta;
 
-  qDebug() << "Tili valittu: " + tilinValinta;
-  Ppaaikkuna->show();
+    Ppaaikkuna->show();
 
 }
-<<<<<<< HEAD
-=======
 
 void MainWindow::getasiakasSlot(QString tunnus)
 {
     qDebug() << "hauskaa" + tunnus;
 }
 
-
->>>>>>> 7600a237285e7346a7f686dfb873e4963281b852

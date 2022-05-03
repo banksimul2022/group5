@@ -19,7 +19,7 @@
      <x>10</x>
      <y>260</y>
      <width>221</width>
-     <height>151</height>
+     <height>176</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -45,6 +45,13 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="Talleta_rahaa">
+      <property name="text">
+       <string>Talleta rahaa</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="Nosta_rahaa">
       <property name="text">
        <string>Nosta rahaa</string>
@@ -59,19 +66,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QPushButton" name="Saldo">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>180</y>
-     <width>80</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Saldo</string>
-   </property>
   </widget>
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
@@ -100,7 +94,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>210</y>
+     <y>200</y>
      <width>71</width>
      <height>16</height>
     </rect>

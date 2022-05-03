@@ -57,8 +57,9 @@ void Login::loginSlot(QNetworkReply *reply)
     }*/
 
     emit getTrueFalse(response_data);
+    response_data = nullptr;
 
-    reply->deleteLater();
-    postManager->deleteLater();
+    /*reply->deleteLater();
+    postManager->deleteLater();*/
 
 }

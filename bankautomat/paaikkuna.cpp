@@ -7,7 +7,7 @@ Paaikkuna::Paaikkuna(QWidget *parent) :
 {
     ui->setupUi(this);
     pnosta_rahaa = new nosta_rahaa;
-
+    ptalleta_rahaa = new talleta_rahaa;
 }
 
 Paaikkuna::~Paaikkuna()
@@ -28,25 +28,7 @@ void Paaikkuna::on_selaatilitapahtumia_clicked()
 }
 
 
-void Paaikkuna::on_nostarahaa_clicked()
-{
-
-}
-
-
-void Paaikkuna::on_talletarahaa_clicked()
-{
-
-}
-
-
 void Paaikkuna::on_kirjaudu_ulos_clicked()
-{
-
-}
-
-
-void Paaikkuna::on_naytasaldo_clicked()
 {
 
 }
@@ -56,3 +38,9 @@ void Paaikkuna::on_Nosta_rahaa_clicked()
 {
     pnosta_rahaa->show();
 }
+
+void Paaikkuna::on_Talleta_rahaa_clicked()
+{
+    ptalleta_rahaa->show();
+}
+

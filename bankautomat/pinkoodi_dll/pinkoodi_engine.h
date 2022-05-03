@@ -18,6 +18,7 @@ public:
     explicit pinkoodi_engine(QWidget *parent = nullptr);
     ~pinkoodi_engine();
     QTimer * timer;
+    void pinkoodi_vaarin();
 
 signals:
     void pinkoodi_signal(QString);
@@ -52,6 +53,8 @@ private slots:
 private:
     Ui::pinkoodi_engine *ui;
     QString pinkoodi;
+    int yritys = 3;
+
 
 };
 

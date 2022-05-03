@@ -18,7 +18,14 @@ void Pinkoodi_dll::close()
     objectpinkoodi_engine->close();
 }
 
+void Pinkoodi_dll::pinkoodi_vaarin()
+{
+    objectpinkoodi_engine->pinkoodi_vaarin();
+}
+
 void Pinkoodi_dll::pinkoodi_slot(QString pinkoodi)
 {
     emit pinkoodi_signal(pinkoodi);
 }
+
+

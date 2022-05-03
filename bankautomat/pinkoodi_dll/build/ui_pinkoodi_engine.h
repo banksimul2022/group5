@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -37,6 +38,7 @@ public:
     QPushButton *a6;
     QPushButton *a3;
     QLineEdit *lineEdit;
+    QLabel *vaarapin_label;
 
     void setupUi(QDialog *pinkoodi_engine)
     {
@@ -113,6 +115,9 @@ public:
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setGeometry(QRect(50, 260, 251, 24));
         lineEdit->setEchoMode(QLineEdit::Password);
+        vaarapin_label = new QLabel(pinkoodi_engine);
+        vaarapin_label->setObjectName(QString::fromUtf8("vaarapin_label"));
+        vaarapin_label->setGeometry(QRect(50, 290, 251, 41));
 
         retranslateUi(pinkoodi_engine);
 
@@ -135,6 +140,7 @@ public:
         a6->setText(QCoreApplication::translate("pinkoodi_engine", "6", nullptr));
         a3->setText(QCoreApplication::translate("pinkoodi_engine", "3", nullptr));
         lineEdit->setText(QString());
+        vaarapin_label->setText(QString());
     } // retranslateUi
 
 };
