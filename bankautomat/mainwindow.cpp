@@ -180,6 +180,7 @@ void MainWindow::haedebittapahtuma(QString debittapahtumat)
     Ppaaikkuna->asetaTapahtuma(debittapahtumat);
 }
 
+
 void MainWindow::haecredittapahtuma(QString credittapahtumat)
 {
     Ppaaikkuna->asetaTapahtuma(credittapahtumat);
@@ -194,6 +195,8 @@ void MainWindow::getcredittapahtumaSlot(QString cid)
 {
     cid = 1;
 }
+
+
 
 void MainWindow::getasiakasSlot(QString tunnus)
 {
