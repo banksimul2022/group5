@@ -35,8 +35,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(debitSignal(QString)),
             this, SLOT(getcreditSlot(QString)));
 
-    connect(pRESTAPI_DLL, SIGNAL(tapahtumaSignal(QString)),
-            this,SLOT(gettapahtumaSlot(QString)));
+    connect(pRESTAPI_DLL, SIGNAL(debittapahtumaSignal(QString)),
+            this,SLOT(getdebittapahtumaSlot(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(credittapahtumaSignal(QString)),
+            this,SLOT(getcredittapahtumaSlot(QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString,QString)),
             this, SLOT(haenimi(QString,QString)));
@@ -47,8 +50,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(saldoToExe(QString)),
             this,SLOT(haesaldo(QString)));
 
-    connect(pRESTAPI_DLL, SIGNAL(tapahtumaToExe(QString)),
-            this,SLOT(haetapahtuma(QString)));
+    connect(pRESTAPI_DLL, SIGNAL(debittapahtumaToExe(QString)),
+            this,SLOT(haedebittapahtuma(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(credittapahtumaToExe(QString)),
+            this,SLOT(haecredittapahtuma(QString)));
 
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
@@ -129,11 +135,12 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
     if(tilinValinta=="credit")    {
         pRESTAPI_DLL->getCredit(credit);
         Ppaaikkuna->show();
+        pRESTAPI_DLL->getcreditTapahtuma(tilitapahtuma);
     }
 
     if(tilinValinta=="debit") {
         pRESTAPI_DLL->getDebit(debit);
-        pRESTAPI_DLL->getTapahtuma(tilitapahtuma);
+        pRESTAPI_DLL->getdebitTapahtuma(tilitapahtuma);
         Ppaaikkuna->show();
     }
 }
@@ -168,16 +175,30 @@ void MainWindow::haesaldo(QString saldo)
     }
 }
 
-void MainWindow::haetapahtuma(QString tapahtumat)
+void MainWindow::haedebittapahtuma(QString debittapahtumat)
 {
-    Ppaaikkuna->asetaTapahtuma(tapahtumat);
+    Ppaaikkuna->asetaTapahtuma(debittapahtumat);
 }
 
+<<<<<<< HEAD
 
 
 void MainWindow::gettapahtumaSlot(QString id)
+=======
+void MainWindow::haecredittapahtuma(QString credittapahtumat)
+>>>>>>> 6e1171ad5463879c851873e9cc833ec5d11428e1
 {
-    id = 1;
+    Ppaaikkuna->asetaTapahtuma(credittapahtumat);
+}
+
+void MainWindow::getdebittapahtumaSlot(QString did)
+{
+    did = 1;
+}
+
+void MainWindow::getcredittapahtumaSlot(QString cid)
+{
+    cid = 1;
 }
 
 
