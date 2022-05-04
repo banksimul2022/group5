@@ -173,10 +173,14 @@ void MainWindow::haetapahtuma(QString tapahtumat)
     Ppaaikkuna->asetaTapahtuma(tapahtumat);
 }
 
+
+
 void MainWindow::gettapahtumaSlot(QString id)
 {
     id = 1;
 }
+
+
 
 void MainWindow::getasiakasSlot(QString tunnus)
 {

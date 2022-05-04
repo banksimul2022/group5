@@ -33,11 +33,13 @@ public slots:
     void haesaldo(QString);
     void haetapahtuma(QString);
 
+
 signals:
     void asiakasSignal(QString);
     void creditSignal(QString);
     void debitSignal(QString);
     void tapahtumaSignal(QString);
+
 
 private slots:
     void on_HYVAKSY_clicked();
@@ -50,6 +52,7 @@ private slots:
     void getcreditSlot(QString);
     void getdebitSlot(QString);
     void gettapahtumaSlot(QString);
+
 
 private:
     Ui::MainWindow *ui;

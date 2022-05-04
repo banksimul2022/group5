@@ -18,3 +18,13 @@ void nosta_rahaa::on_Sulje_btn_clicked()
     window()->close();
 }
 
+void nosta_rahaa::getcrdnostoSlot(QString ctilinnumero)
+{
+    ctilinnumero = 1;
+}
+
+void nosta_rahaa::haeCrdNosto(QString nosto)
+{
+    nosto = nosto+" €";
+
+}

@@ -184,9 +184,29 @@ void RESTAPI::gettapahtumaSlot(QNetworkReply *reply)
      //creditManager->deleteLater();
 }
 
+void RESTAPI::getCrdnostoSlot(QNetworkReply *reply)
+{
+
+}
+
 void RESTAPI::setwebToken(const QByteArray &value)
 {
     webToken = value;
+}
+
+void RESTAPI::getCrdNosto(QString tilinnumero)
+{
+    QString site_url="http://localhost:3000/tilitapahtumat/credit_nosto";
+    site_url.append(tilinnumero);
+    qDebug() << site_url;
+    QNetworkRequest request((site_url));
+
+    QByteArray wtoken="Bearer "+webToken;
+    request.setRawHeader(QByteArray("Authorization"),(wtoken));
+
+    CrdnostoManager = new QNetworkAccessManager(this);
+    connect(CrdnostoManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getCrdnostoSlot(QNetworkReply*)));
+    reply = CrdnostoManager->get(request);
 }
 
 void RESTAPI::login_slot(QByteArray truefalse)
