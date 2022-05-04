@@ -24,7 +24,7 @@ public:
     void getdebitTapahtuma(QString tapahtuma);
     void getcreditTapahtuma(QString credittapahtuma);
     void setwebToken(const QByteArray &value);
-    void getCrdNosto(QString tilinnumero);
+    //void getCrdNosto(QString tilinnumero);
 
 private slots:
     void login_slot(QByteArray);
@@ -32,7 +32,7 @@ private slots:
     void getcreditSlot (QNetworkReply *reply);
     void getdebitSlot (QNetworkReply *reply);
     void gettapahtumaSlot (QNetworkReply *reply);
-    void getCrdnostoSlot (QNetworkReply *reply);
+    //void getCrdnostoSlot (QNetworkReply *reply);
     void getdebittapahtumaSlot (QNetworkReply *reply);
     void getcredittapahtumaSlot (QNetworkReply *reply);
 
@@ -48,7 +48,7 @@ signals:
     void velkaToExe(QString);
     void saldoToExe(QString);
     void tapahtumaToExe(QString);
-    void CrdnostoSignal(QString);
+    //void CrdnostoSignal(QString);
     void debittapahtumaToExe(QString);
     void credittapahtumaToExe(QString);
 

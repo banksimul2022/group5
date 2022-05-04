@@ -223,7 +223,7 @@ void RESTAPI::getcredittapahtumaSlot(QNetworkReply *reply)
      //creditManager->deleteLater();
 }
 
-void RESTAPI::getCrdnostoSlot(QNetworkReply *reply)
+/*void RESTAPI::getCrdnostoSlot(QNetworkReply *reply)
 {
 
 }
@@ -246,7 +246,7 @@ void RESTAPI::getCrdNosto(QString tilinnumero)
     CrdnostoManager = new QNetworkAccessManager(this);
     connect(CrdnostoManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getCrdnostoSlot(QNetworkReply*)));
     reply = CrdnostoManager->get(request);
-}
+}*/
 
 void RESTAPI::login_slot(QByteArray truefalse)
 {
