@@ -217,7 +217,7 @@ void RESTAPI::getcredittapahtumaSlot(QNetworkReply *reply)
         //tapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+",  "+QString::number((json_obj["Tilinnumero"].toInt()))+",  "+json_obj["Tapahtuma"].toString()+",  "+json_obj["Pvm"].toString()+",  "+QString::number((json_obj["Summa"].toInt()))+" €\n";
         credittapahtumat+= QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
         qDebug()<<"tapahtuuko??? "+credittapahtumat;
-        emit debittapahtumaToExe(credittapahtumat);
+        emit credittapahtumaToExe(credittapahtumat);
      }
      //reply->deleteLater();
      //creditManager->deleteLater();

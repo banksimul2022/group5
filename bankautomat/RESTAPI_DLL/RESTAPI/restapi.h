@@ -31,13 +31,10 @@ private slots:
     void getasiakasSlot(QNetworkReply *reply);
     void getcreditSlot (QNetworkReply *reply);
     void getdebitSlot (QNetworkReply *reply);
-<<<<<<< HEAD
     void gettapahtumaSlot (QNetworkReply *reply);
     void getCrdnostoSlot (QNetworkReply *reply);
-=======
     void getdebittapahtumaSlot (QNetworkReply *reply);
     void getcredittapahtumaSlot (QNetworkReply *reply);
->>>>>>> 6e1171ad5463879c851873e9cc833ec5d11428e1
 
 
 signals:
@@ -50,13 +47,10 @@ signals:
     void nimiToExe(QString,QString);
     void velkaToExe(QString);
     void saldoToExe(QString);
-<<<<<<< HEAD
     void tapahtumaToExe(QString);
     void CrdnostoSignal(QString);
-=======
     void debittapahtumaToExe(QString);
     void credittapahtumaToExe(QString);
->>>>>>> 6e1171ad5463879c851873e9cc833ec5d11428e1
 
 private:
 
