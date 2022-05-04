@@ -31,13 +31,15 @@ public slots:
     void haenimi(QString,QString);
     void haevelka(QString);
     void haesaldo(QString);
-    void haetapahtuma(QString);
+    void haedebittapahtuma(QString);
+    void haecredittapahtuma(QString);
 
 signals:
     void asiakasSignal(QString);
     void creditSignal(QString);
     void debitSignal(QString);
-    void tapahtumaSignal(QString);
+    void debittapahtumaSignal(QString);
+    void credittapahtumaSignal(QString);
 
 private slots:
     void on_HYVAKSY_clicked();
@@ -49,7 +51,8 @@ private slots:
     void getasiakasSlot(QString);
     void getcreditSlot(QString);
     void getdebitSlot(QString);
-    void gettapahtumaSlot(QString);
+    void getdebittapahtumaSlot(QString);
+    void getcredittapahtumaSlot(QString);
 
 private:
     Ui::MainWindow *ui;

@@ -29,6 +29,17 @@ const tilitapahtumat = {
      [id], callback);
   },
 
+  get10debitTapahtumaa: function(id, callback) {
+    return db.query('select * from tilitapahtumat where tapahtuma = "Talletus" OR tapahtuma = "Nosto" OR tapahtuma = "Credit_Laskutus" AND tilinnumero =? order by id_tapahtuma desc limit 10;',
+     [id], callback);
+  },
+
+  get10creditTapahtumaa: function(id, callback) {
+    return db.query('select * from tilitapahtumat where tapahtuma = "Credit_Nosto" and tilinnumero =? order by id_tapahtuma desc limit 10;',
+     [id], callback);
+  },
+
+
   get5Tapahtumaa: function(id, callback) {
     return db.query('SELECT * FROM tilitapahtumat WHERE tilinnumero=?ORDER BY id_tapahtuma DESC limit 5;',
      [id], callback);
@@ -53,7 +64,7 @@ const tilitapahtumat = {
   },
   update: function(id, tilitapahtumat, callback) {
     return db.query(
-      'update tilitapahtumat set Tilinnumero=?, Tapahtuma=?, PVM=?, Summa=?, DebitTili_Tilinnumero=?, CreditTili_Tilinnumero=? where Tilinnumero=?',
+      'update tilitapahtumat set Tilinnumero=?, Tapahtuma=?, PVM=?, Summa=?, DebitTili_Tilinnumero=?, CreditTili_Tilinnumero=? where id_tapahtuma=?',
       [tilitapahtumat.Tilinnumero, tilitapahtumat.Tapahtuma, tilitapahtumat.PVM, tilitapahtumat.Summa, tilitapahtumat.DebitTili_Tilinnumero, tilitapahtumat.CreditTili_Tilinnumero,id],
       callback
     );
