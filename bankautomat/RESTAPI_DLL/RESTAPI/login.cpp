@@ -42,20 +42,6 @@ void Login::loginSlot(QNetworkReply *reply)
     response_data=reply->readAll();
     qDebug()<<response_data;
 
-    /*if(response_data=="true")
-    {
-        response_data = "kirjautuminen onnistui"
-;        token = "Bearer "+response_data;
-        qDebug()<<token;
-        //Singleton *s = s->getSingletonInstance();
-        //s->setSingletonToken(token);
-        //trueFalse = "true";
-    }
-    else if(response_data == "false")
-    {
-        response_data = "kortinnumero tai pinkoodi vaarin";
-    }*/
-
     emit getTrueFalse(response_data);
     response_data = nullptr;
 

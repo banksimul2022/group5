@@ -54,7 +54,7 @@ void RESTAPI::getasiakasSlot(QNetworkReply *reply)
      QString asiakas;
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
-        asiakas+= QString::number(json_obj["tunnus"].toInt());
+        asiakas+= QString::number(json_obj["Tunnus"].toInt());
         emit asiakasSignal(asiakas);
      }
      QString etunimi, sukunimi;
@@ -65,8 +65,8 @@ void RESTAPI::getasiakasSlot(QNetworkReply *reply)
            qDebug()<<etunimi+" "+sukunimi;
            emit nimiToExe(etunimi,sukunimi);
      }
-     reply->deleteLater();
-     asiakasManager->deleteLater();
+     //reply->deleteLater();
+     //asiakasManager->deleteLater();
 }
 
 void RESTAPI::getCredit(QString tilinnumero)
@@ -90,11 +90,11 @@ void RESTAPI::getcreditSlot(QNetworkReply *reply)
      qDebug()<<"DATA : "+response_data;
      QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
      QJsonArray json_array = json_doc.array();
-     QString tilinnumero;
+     QString ctilinnumero;
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
-        tilinnumero+= QString::number(json_obj["Tilinnumero"].toInt());
-        emit creditSignal(tilinnumero);
+        ctilinnumero+= QString::number(json_obj["Tilinnumero"].toInt());
+        emit creditSignal(ctilinnumero);
      }
      QString velka;
      foreach (const QJsonValue &value, json_array) {
@@ -103,8 +103,8 @@ void RESTAPI::getcreditSlot(QNetworkReply *reply)
            qDebug()<<"velka on "+velka;
            emit velkaToExe(velka);
      }
-     reply->deleteLater();
-     creditManager->deleteLater();
+     //reply->deleteLater();
+     //creditManager->deleteLater();
 }
 
 void RESTAPI::getDebit(QString tilinnumero)
@@ -117,7 +117,7 @@ void RESTAPI::getDebit(QString tilinnumero)
     QByteArray wtoken="Bearer "+webToken;
     request.setRawHeader(QByteArray("Authorization"),(wtoken));
 
-    creditManager = new QNetworkAccessManager(this);
+    debitManager = new QNetworkAccessManager(this);
     connect(debitManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getdebitSlot(QNetworkReply*)));
     reply = debitManager->get(request);
 }
@@ -128,11 +128,11 @@ void RESTAPI::getdebitSlot(QNetworkReply *reply)
      qDebug()<<"DATA : "+response_data;
      QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
      QJsonArray json_array = json_doc.array();
-     QString tilinnumero;
+     QString dtilinnumero;
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
-        tilinnumero+= QString::number(json_obj["Tilinnumero"].toInt());
-        emit debitSignal(tilinnumero);
+        dtilinnumero+= QString::number(json_obj["Tilinnumero"].toInt());
+        emit debitSignal(dtilinnumero);
      }
      QString saldo;
      foreach (const QJsonValue &value, json_array) {
@@ -141,17 +141,47 @@ void RESTAPI::getdebitSlot(QNetworkReply *reply)
            qDebug()<<"saldo on "+saldo;
            emit saldoToExe(saldo);
      }
-     reply->deleteLater();
-     creditManager->deleteLater();
-}
-void RESTAPI::startSaldo()
-{
-
+     //reply->deleteLater();
+     //creditManager->deleteLater();
 }
 
-void RESTAPI::startTilitapahtumat()
+void RESTAPI::getTapahtuma(QString tapahtuma)
 {
+    QString site_url="http://localhost:3000/tilitapahtumat/10tapahtumaa/1";
+    site_url.append(tapahtuma);
+    qDebug() << site_url;
+    QNetworkRequest request((site_url));
 
+    QByteArray wtoken="Bearer "+webToken;
+    request.setRawHeader(QByteArray("Authorization"),(wtoken));
+
+    tapahtumaManager = new QNetworkAccessManager(this);
+    connect(tapahtumaManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(gettapahtumaSlot(QNetworkReply*)));
+    reply = tapahtumaManager->get(request);
+}
+
+void RESTAPI::gettapahtumaSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+     qDebug()<<"DATA : "+response_data;
+     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+     QJsonArray json_array = json_doc.array();
+     QString id;
+     foreach (const QJsonValue &value, json_array) {
+        QJsonObject json_obj = value.toObject();
+        id+= QString::number(json_obj["id_tapahtuma"].toInt());
+        emit tapahtumaSignal(id);
+     }
+     QString tapahtumat;
+     foreach (const QJsonValue &value, json_array) {
+        QJsonObject json_obj = value.toObject();
+        //tapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+",  "+QString::number((json_obj["Tilinnumero"].toInt()))+",  "+json_obj["Tapahtuma"].toString()+",  "+json_obj["Pvm"].toString()+",  "+QString::number((json_obj["Summa"].toInt()))+" €\n";
+        tapahtumat+= QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
+        qDebug()<<"tapahtuuko??? "+tapahtumat;
+        emit tapahtumaToExe(tapahtumat);
+     }
+     //reply->deleteLater();
+     //creditManager->deleteLater();
 }
 
 void RESTAPI::setwebToken(const QByteArray &value)
