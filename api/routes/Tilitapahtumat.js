@@ -82,6 +82,32 @@ router.get('/10Tapahtumaa/:id?',
   } 
 });
 
+router.get('/10debitTapahtumaa/:id?',
+ function(request, response) {
+  if (request.params.id) {
+    Tilitapahtumat.get10debitTapahtumaa(request.params.id, function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult);
+      }
+    });
+  } 
+});
+
+router.get('/10creditTapahtumaa/:id?',
+ function(request, response) {
+  if (request.params.id) {
+    Tilitapahtumat.get10creditTapahtumaa(request.params.id, function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult);
+      }
+    });
+  } 
+});
+
 router.get('/5Tapahtumaa/:id?',
  function(request, response) {
   if (request.params.id) {
