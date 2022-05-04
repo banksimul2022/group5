@@ -5,6 +5,7 @@
 #include "restapi.h"
 #include "nosta_rahaa.h"
 #include "talleta_rahaa.h"
+#include "mainwindow.h"
 
 
 namespace Ui {
@@ -23,7 +24,6 @@ public:
     void asetaVelka(QString velka);
     void asetaTapahtuma(QString tapahtuu);
 
-
 private slots:
     void on_selaatilitapahtumia_clicked();
     void on_kirjaudu_ulos_clicked();
@@ -36,6 +36,7 @@ private:
     Ui::Paaikkuna *ui;
     nosta_rahaa * pnosta_rahaa;
     talleta_rahaa * ptalleta_rahaa;
+
 };
 
 #endif // PAAIKKUNA_H

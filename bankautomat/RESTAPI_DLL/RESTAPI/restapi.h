@@ -17,12 +17,14 @@ public:
 
     void setPin(QString kortinnumero, QString pin);
     bool getTrueFalse();
+    Login *objectLogin;
 
     void getAsiakas(QString tunnus);
     void getCredit(QString tilinnumero);
     void getDebit(QString tilinnumero);
     void getdebitTapahtuma(QString tapahtuma);
     void getcreditTapahtuma(QString credittapahtuma);
+    void postdebitTalletus(QString tilinum, QString summa);
     void setwebToken(const QByteArray &value);
 
 private slots:
@@ -32,6 +34,7 @@ private slots:
     void getdebitSlot (QNetworkReply *reply);
     void getdebittapahtumaSlot (QNetworkReply *reply);
     void getcredittapahtumaSlot (QNetworkReply *reply);
+    void postdebittalletusSlot (QNetworkReply *reply);
 
 
 signals:
@@ -46,6 +49,7 @@ signals:
     void saldoToExe(QString);
     void debittapahtumaToExe(QString);
     void credittapahtumaToExe(QString);
+    void talletusSignal();
 
 private:
 
@@ -54,9 +58,9 @@ private:
         QNetworkAccessManager * asiakasManager;
         QNetworkAccessManager * creditManager;
         QNetworkAccessManager * debitManager;
+        QNetworkAccessManager * talletusManager;
         QNetworkReply *reply;
         QByteArray response_data;
-        Login *objectLogin;
         QByteArray webToken;
 };
 

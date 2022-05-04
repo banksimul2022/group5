@@ -40,12 +40,11 @@ void Login::getPin()
 void Login::loginSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-    qDebug()<<response_data;
+    qDebug()<<"dll login slot"<<response_data;
 
     emit getTrueFalse(response_data);
-    response_data = nullptr;
 
-    /*reply->deleteLater();
-    postManager->deleteLater();*/
+    reply->deleteLater();
+    postManager->deleteLater();
 
 }

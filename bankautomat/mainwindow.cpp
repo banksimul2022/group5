@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer;
     Ppaaikkuna = new Paaikkuna;
     pcreditdebit = new creditdebit;
+    ptalleta_rahaa = new talleta_rahaa;
 
     pRFID_DLL->luekortinid();
 
@@ -33,12 +34,15 @@ MainWindow::MainWindow(QWidget *parent)
             this, SLOT(getcreditSlot(QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(debitSignal(QString)),
-            this, SLOT(getcreditSlot(QString)));
+            this, SLOT(getdebittSlot(QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(debittapahtumaSignal(QString)),
             this,SLOT(getdebittapahtumaSlot(QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(credittapahtumaSignal(QString)),
+            this,SLOT(getcredittapahtumaSlot(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(talletusSignal()),
             this,SLOT(getcredittapahtumaSlot(QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(nimiToExe(QString,QString)),
@@ -58,6 +62,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(debitSignal(QString)),
+            this, SLOT(getdebittSlot(QString)));
+
+    connect(pRESTAPI_DLL, SIGNAL(debitSignal(QString)),
+            this, SLOT(getdebittSlot(QString)));
 
 }
 MainWindow::~MainWindow()
@@ -92,7 +102,6 @@ void MainWindow::on_HYVAKSY_clicked()
 void MainWindow::RFID_slot(QByteArray)
 {
     pPinkoodi_dll->show();
-
 }
 
 void MainWindow::pinkoodi_slot(QString pinkoodi)
@@ -139,6 +148,7 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
     }
 
     if(tilinValinta=="debit") {
+
         pRESTAPI_DLL->getDebit(debit);
         pRESTAPI_DLL->getdebitTapahtuma(tilitapahtuma);
         Ppaaikkuna->show();
@@ -172,6 +182,7 @@ void MainWindow::haesaldo(QString saldo)
 
     if(Ppaaikkuna->isMinimized()) {
         Ppaaikkuna->asetaSaldo(nullptr);
+
     }
 }
 
@@ -193,6 +204,11 @@ void MainWindow::getdebittapahtumaSlot(QString did)
 void MainWindow::getcredittapahtumaSlot(QString cid)
 {
     cid = 1;
+}
+
+void MainWindow::postdebittalletusSlot(QString)
+{
+
 }
 
 void MainWindow::getasiakasSlot(QString tunnus)

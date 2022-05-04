@@ -7,7 +7,7 @@ CREATE PROCEDURE credit_nosto(IN first_id INT,IN Summa INT)
   SET test1=ROW_COUNT();
     IF (test1 = 0 OR test1 > 0) THEN   
       COMMIT;    
-      INSERT INTO tilitapahtumat(Tilinnumero,Tapahtuma,PVM,Summa,CreditTili_Tilinnumero,DebitTili_Tilinnumero) VALUES(first_id,'Credit_Nosto',NOW(),Summa,first_id,first_id);
+      INSERT INTO tilitapahtumat(Tilinnumero,Tapahtuma,PVM,Summa,CreditTili_Tilinnumero,DebitTili_Tilinnumero) VALUES(first_id,'Credit_nosto',NOW(),Summa,first_id,first_id);
     ELSE
       ROLLBACK;
   END IF;

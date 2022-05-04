@@ -1,6 +1,7 @@
 #include "paaikkuna.h"
 #include "ui_paaikkuna.h"
 #include "mainwindow.h"
+#include "talleta_rahaa.h"
 
 Paaikkuna::Paaikkuna(QWidget *parent) :
     QDialog(parent),
@@ -38,7 +39,6 @@ void Paaikkuna::asetaTapahtuma(QString tapahtuu)
 
 void Paaikkuna::on_selaatilitapahtumia_clicked()
 {
-
 }
 
 void Paaikkuna::on_kirjaudu_ulos_clicked()

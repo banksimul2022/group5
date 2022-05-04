@@ -8,11 +8,10 @@
 #include "pinkoodi_dll.h"
 #include "restapi.h"
 #include "pinkoodi_engine.h"
-
+#include "talleta_rahaa.h"
+#include "nosta_rahaa.h"
 #include "paaikkuna.h"
 #include "creditdebit.h"
-
-
 
 
 QT_BEGIN_NAMESPACE
@@ -40,6 +39,7 @@ signals:
     void debitSignal(QString);
     void debittapahtumaSignal(QString);
     void credittapahtumaSignal(QString);
+    void saldopaivitysSignal();
 
 private slots:
     void on_HYVAKSY_clicked();
@@ -53,6 +53,7 @@ private slots:
     void getdebitSlot(QString);
     void getdebittapahtumaSlot(QString);
     void getcredittapahtumaSlot(QString);
+    void postdebittalletusSlot(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -62,11 +63,11 @@ private:
     QTimer * timer;
     Paaikkuna * Ppaaikkuna;
     creditdebit * pcreditdebit;
+    talleta_rahaa * ptalleta_rahaa;
     QString asiakas;
     QString tilitapahtuma;
     QString credit;
     QString debit;
-    QString valinta;
 };
 
 #endif // MAINWINDOW_H

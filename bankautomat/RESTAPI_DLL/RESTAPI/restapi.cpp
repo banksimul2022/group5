@@ -163,7 +163,7 @@ void RESTAPI::getdebitTapahtuma(QString tapahtuma)
 void RESTAPI::getdebittapahtumaSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-     qDebug()<<"DATA : "+response_data;
+     //qDebug()<<"DATA : "+response_data;
      QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
      QJsonArray json_array = json_doc.array();
      QString did;
@@ -175,9 +175,8 @@ void RESTAPI::getdebittapahtumaSlot(QNetworkReply *reply)
      QString debittapahtumat;
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
-        //tapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+",  "+QString::number((json_obj["Tilinnumero"].toInt()))+",  "+json_obj["Tapahtuma"].toString()+",  "+json_obj["Pvm"].toString()+",  "+QString::number((json_obj["Summa"].toInt()))+" €\n";
         debittapahtumat+= QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
-        qDebug()<<"tapahtuuko??? "+debittapahtumat;
+        //qDebug()<<debittapahtumat;
         emit debittapahtumaToExe(debittapahtumat);
      }
      //reply->deleteLater();
@@ -202,30 +201,63 @@ void RESTAPI::getcreditTapahtuma(QString credittapahtuma)
 void RESTAPI::getcredittapahtumaSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-     qDebug()<<"DATA : "+response_data;
+     //qDebug()<<"DATA : "+response_data;
      QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
      QJsonArray json_array = json_doc.array();
      QString cid;
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
         cid+= QString::number(json_obj["id_tapahtuma"].toInt());
-        emit debittapahtumaSignal(cid);
+        emit credittapahtumaSignal(cid);
      }
      QString credittapahtumat;
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
-        //tapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+",  "+QString::number((json_obj["Tilinnumero"].toInt()))+",  "+json_obj["Tapahtuma"].toString()+",  "+json_obj["Pvm"].toString()+",  "+QString::number((json_obj["Summa"].toInt()))+" €\n";
         credittapahtumat+= QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
-        qDebug()<<"tapahtuuko??? "+credittapahtumat;
-        emit debittapahtumaToExe(credittapahtumat);
+        //qDebug()<<+credittapahtumat;
+        emit credittapahtumaToExe(credittapahtumat);
      }
      //reply->deleteLater();
      //creditManager->deleteLater();
 }
 
+void RESTAPI::postdebitTalletus(QString tilinum, QString summa)
+{
+    QJsonObject jsonObj;
+    jsonObj.insert("Tilinnumero", tilinum);
+    jsonObj.insert("Summa", summa);
+    QString site_url="http://localhost:3000/tilitapahtumat/debit_talletus";
+    qDebug()<<"DATA : "<<jsonObj;
+    qDebug() << site_url;
+    QNetworkRequest request((site_url));
+
+    QByteArray wtoken="Bearer "+webToken;
+    request.setRawHeader(QByteArray("Authorization"),(wtoken));
+
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    talletusManager = new QNetworkAccessManager(this);
+    connect(talletusManager, SIGNAL(finished (QNetworkReply*)),
+           this, SLOT(postdebittalletusSlot(QNetworkReply*)));
+
+    reply = talletusManager->post(request, QJsonDocument(jsonObj).toJson());
+}
+
+void RESTAPI::postdebittalletusSlot(QNetworkReply *reply)
+{
+    qDebug()<< "debit talletus slotissa()";
+    emit talletusSignal();
+    response_data=reply->readAll();
+    qDebug()<<response_data;
+
+    reply->deleteLater();
+    talletusManager->deleteLater();
+}
+
 void RESTAPI::setwebToken(const QByteArray &value)
 {
     webToken = value;
+    qDebug()<<"set webtoken"<<webToken;
 }
 
 void RESTAPI::login_slot(QByteArray truefalse)
