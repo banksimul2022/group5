@@ -180,13 +180,8 @@ void MainWindow::haedebittapahtuma(QString debittapahtumat)
     Ppaaikkuna->asetaTapahtuma(debittapahtumat);
 }
 
-<<<<<<< HEAD
 
-
-void MainWindow::gettapahtumaSlot(QString id)
-=======
 void MainWindow::haecredittapahtuma(QString credittapahtumat)
->>>>>>> 6e1171ad5463879c851873e9cc833ec5d11428e1
 {
     Ppaaikkuna->asetaTapahtuma(credittapahtumat);
 }
