@@ -2,7 +2,10 @@
 #define TALLETA_RAHAA_H
 
 #include <QDialog>
+#include <QTimer>
+#include <QDebug>
 #include "restapi.h"
+
 
 namespace Ui {
 class talleta_rahaa;
@@ -15,6 +18,7 @@ class talleta_rahaa : public QDialog
 public:
     explicit talleta_rahaa(QWidget *parent = nullptr);
     ~talleta_rahaa();
+    QTimer * timer;
 
 public slots:
 
@@ -35,6 +39,8 @@ private slots:
 
     void on_Talleta_rahaa_clicked();
 
+    void aika_loppu();
+
 signals:
     void paivitusSignal(QString);
 
@@ -44,7 +50,7 @@ private:
     RESTAPI * pRESTAPI_DLL;
     QString tilinnumero;
     QString saldo;
-    QString debit;
+    QString debit;   
 };
 
 #endif // TALLETA_RAHAA_H

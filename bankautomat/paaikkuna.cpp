@@ -37,18 +37,15 @@ void Paaikkuna::asetaTapahtuma(QString tapahtuu)
     ui->tapahtumaBrowser->setText(tapahtuu);
 }
 
-void Paaikkuna::on_selaatilitapahtumia_clicked()
-{
-    pRESTAPI_DLL->getcreditTapahtuma(tilitapahtuma);
-}
-
 void Paaikkuna::on_Nosta_rahaa_clicked()
 {
+    pnosta_rahaa->timer->start(10000);
     pnosta_rahaa->show();
 }
 
 void Paaikkuna::on_Talleta_rahaa_clicked()
 {
+    ptalleta_rahaa->timer->start(10000);
     ptalleta_rahaa->show();
 }
 

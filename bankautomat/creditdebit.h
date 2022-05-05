@@ -16,10 +16,12 @@ class creditdebit : public QDialog
 public:
     explicit creditdebit(QWidget *parent = nullptr);
     ~creditdebit();
+    QTimer * timer;
 
 private slots:
     void on_DEBIT_clicked();
     void on_CREDIT_clicked();
+    void aika_loppu();
 
 private:
     Ui::creditdebit *ui;

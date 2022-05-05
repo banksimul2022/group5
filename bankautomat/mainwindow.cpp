@@ -101,6 +101,7 @@ void MainWindow::login_slot(QByteArray truefalse)
     {
         pPinkoodi_dll->close();
         pcreditdebit->show();
+        pcreditdebit->timer->start(10000);
     }
     else if(truefalse == "false")
     {
