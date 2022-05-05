@@ -31,35 +31,35 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="nelkyt_btn">
       <property name="text">
        <string>40</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="kuuskyt_btn">
       <property name="text">
        <string>60</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="satku_btn">
       <property name="text">
        <string>100</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="kakssataa_btn">
       <property name="text">
        <string>200</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="viishunttia_btn">
       <property name="text">
        <string>500</string>
       </property>
@@ -93,7 +93,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="nostoLabel">
    <property name="geometry">
     <rect>
      <x>290</x>
