@@ -9,6 +9,7 @@ Paaikkuna::Paaikkuna(QWidget *parent) :
     ui->setupUi(this);
     pnosta_rahaa = new nosta_rahaa;
     ptalleta_rahaa = new talleta_rahaa;
+    pcreditdebit = new creditdebit;
 }
 
 Paaikkuna::~Paaikkuna()
@@ -38,12 +39,7 @@ void Paaikkuna::asetaTapahtuma(QString tapahtuu)
 
 void Paaikkuna::on_selaatilitapahtumia_clicked()
 {
-
-}
-
-void Paaikkuna::on_kirjaudu_ulos_clicked()
-{
-
+    pRESTAPI_DLL->getcreditTapahtuma(tilitapahtuma);
 }
 
 void Paaikkuna::on_Nosta_rahaa_clicked()
@@ -54,5 +50,13 @@ void Paaikkuna::on_Nosta_rahaa_clicked()
 void Paaikkuna::on_Talleta_rahaa_clicked()
 {
     ptalleta_rahaa->show();
+}
+
+void Paaikkuna::on_Kirjaudu_ulos_clicked()
+{
+    this->close();
+    ptalleta_rahaa->close();
+    pnosta_rahaa->close();
+
 }
 

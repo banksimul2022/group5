@@ -157,7 +157,7 @@ void RESTAPI::getdebittapahtumaSlot(QNetworkReply *reply)
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
         //tapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+",  "+QString::number((json_obj["Tilinnumero"].toInt()))+",  "+json_obj["Tapahtuma"].toString()+",  "+json_obj["Pvm"].toString()+",  "+QString::number((json_obj["Summa"].toInt()))+" €\n";
-        debittapahtumat+= QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
+        debittapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+", "+QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
         //qDebug()<<"tapahtuuko??? "+debittapahtumat;
         emit debittapahtumaToExe(debittapahtumat);
      }
@@ -213,6 +213,39 @@ void RESTAPI::postTallestusSlot(QNetworkReply *reply)
     //talletusManager->deleteLater();
 }
 
+void RESTAPI::postNosto(QString tilinum, QString summa)
+{
+    QJsonObject jsonObj;
+        jsonObj.insert("Tilinnumero", tilinum);
+        jsonObj.insert("Summa", summa);
+        QString site_url="http://localhost:3000/tilitapahtumat/debit_nosto";
+        qDebug()<<"DATA : "<<jsonObj;
+        qDebug() << site_url;
+        QNetworkRequest request((site_url));
+
+        QByteArray wtoken="Bearer "+webToken;
+        request.setRawHeader(QByteArray("Authorization"),(wtoken));
+
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+        nostoManager = new QNetworkAccessManager(this);
+        connect(nostoManager, SIGNAL(finished (QNetworkReply*)),
+               this, SLOT(postdebitnostoSlot(QNetworkReply*)));
+
+        reply = nostoManager->post(request, QJsonDocument(jsonObj).toJson());
+}
+
+void RESTAPI::postNostoSlot(QNetworkReply *reply)
+{
+    qDebug()<< "debit nosto slotissa()";
+    emit nostoToExe();
+    response_data=reply->readAll();
+    qDebug()<<response_data;
+
+    //reply->deleteLater();
+    //talletusManager->deleteLater();
+}
+
 void RESTAPI::getcredittapahtumaSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
@@ -229,7 +262,7 @@ void RESTAPI::getcredittapahtumaSlot(QNetworkReply *reply)
      foreach (const QJsonValue &value, json_array) {
         QJsonObject json_obj = value.toObject();
         //tapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+",  "+QString::number((json_obj["Tilinnumero"].toInt()))+",  "+json_obj["Tapahtuma"].toString()+",  "+json_obj["Pvm"].toString()+",  "+QString::number((json_obj["Summa"].toInt()))+" €\n";
-        credittapahtumat+= QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
+        credittapahtumat+= QString::number((json_obj["id_tapahtuma"].toInt()))+", "+QString::number((json_obj["Tilinnumero"].toInt()))+", "+json_obj["Pvm"].toString()+", "+json_obj["Tapahtuma"].toString()+", "+QString::number((json_obj["Summa"].toInt()))+" €\n";
         //qDebug()<<"tapahtuuko??? "+credittapahtumat;
         emit debittapahtumaToExe(credittapahtumat);
      }

@@ -5,6 +5,8 @@ talleta_rahaa::talleta_rahaa(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::talleta_rahaa)
 {
+
+
     ui->setupUi(this);
 
     pRESTAPI_DLL = new RESTAPI;
@@ -22,7 +24,7 @@ void talleta_rahaa::on_Sulje_clicked()
 {
     window()->close();
     ui->talletus_label->setText(nullptr);
-    pRESTAPI_DLL->getDebit(debit);
+
 }
 
 

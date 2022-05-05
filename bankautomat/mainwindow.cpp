@@ -25,9 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pRESTAPI_DLL, SIGNAL(login_signal(QByteArray)),
             this, SLOT(login_slot(QByteArray)));
 
-    connect(pRESTAPI_DLL, SIGNAL(login_signal(QByteArray)),
-            this, SLOT(login_slot(QByteArray)));
-
     connect(pRESTAPI_DLL, SIGNAL(asiakasSignal(QString)),
             this, SLOT(getasiakasSlot(QString)));
 
@@ -124,10 +121,12 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
 
     if(tilinValinta=="debit") {
         pRESTAPI_DLL->getDebit(debit);
+        qDebug()<<"debitti on "+debit;
         pRESTAPI_DLL->getdebitTapahtuma(tilitapahtuma);
         Ppaaikkuna->show();
     }
 }
+
 void MainWindow::haenimi(QString nimi, QString sukunimi)
 {
     nimi = nimi+" " + sukunimi;
@@ -148,12 +147,9 @@ void MainWindow::haesaldo(QString saldo)
 {
     saldo = saldo+" €";
     Ppaaikkuna->asetaSaldo(saldo);
+    qDebug()<<"hae saldo on "+saldo;
     if(Ppaaikkuna->isMinimized()) {
         Ppaaikkuna->asetaSaldo(nullptr);
-}
-    if(saldo != debit)  {
-        qDebug()<<"saldo on erisuuri";
-        pRESTAPI_DLL->getDebit(debit);
     }
 }
 
