@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer;
     Ppaaikkuna = new Paaikkuna;
     pcreditdebit = new creditdebit;
+    ptalleta_rahaa = new talleta_rahaa;
     pRFID_DLL->luekortinid();
     startTimer();
 
@@ -22,8 +23,11 @@ MainWindow::MainWindow(QWidget *parent)
                 this, SLOT(pinkoodi_slot(QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(login_signal(QByteArray)),
-
             this, SLOT(login_slot(QByteArray)));
+
+    connect(pRESTAPI_DLL, SIGNAL(login_signal(QByteArray)),
+            this, SLOT(login_slot(QByteArray)));
+
     connect(pRESTAPI_DLL, SIGNAL(asiakasSignal(QString)),
             this, SLOT(getasiakasSlot(QString)));
 
@@ -91,6 +95,7 @@ void MainWindow::startTimer()
     qDebug() << "start timer 10sec";
     timer->start(10000);
 }
+
 void MainWindow::login_slot(QByteArray truefalse)
 {
     qDebug()<< "login slotissa: " + truefalse;
@@ -106,6 +111,7 @@ void MainWindow::login_slot(QByteArray truefalse)
         pPinkoodi_dll->pinkoodi_vaarin();
     }
 }
+
 void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
     qDebug() << "Tili valittu: " + tilinValinta;
@@ -144,6 +150,10 @@ void MainWindow::haesaldo(QString saldo)
     Ppaaikkuna->asetaSaldo(saldo);
     if(Ppaaikkuna->isMinimized()) {
         Ppaaikkuna->asetaSaldo(nullptr);
+}
+    if(saldo != debit)  {
+        qDebug()<<"saldo on erisuuri";
+        pRESTAPI_DLL->getDebit(debit);
     }
 }
 

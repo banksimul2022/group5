@@ -37,6 +37,7 @@ private slots:
     void RFID_slot(QByteArray);
     void pinkoodi_slot(QString);
     void startTimer();
+    //void talletusSlot(QString);
     void login_slot(QByteArray);
     void tiliValittuSlot(QString);
     void getasiakasSlot(QString);
@@ -53,10 +54,13 @@ private:
     QTimer * timer;
     Paaikkuna * Ppaaikkuna;
     creditdebit * pcreditdebit;
+    talleta_rahaa * ptalleta_rahaa;
     QString asiakas;
     QString tilitapahtuma;
     QString credit;
     QString debit;
     QString valinta;
+    QString paivitus;
+    QString debittapahtuma;
 };
 #endif // MAINWINDOW_H
