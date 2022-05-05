@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     Ppaaikkuna = new Paaikkuna;
     pcreditdebit = new creditdebit;
     ptalleta_rahaa = new talleta_rahaa;
+    pnosta_rahaa = new nosta_rahaa;
     pRFID_DLL->luekortinid();
     startTimer();
 
@@ -57,6 +58,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
+
+    connect(Ppaaikkuna,SIGNAL(paivitusSignal(QString)),
+            this,SLOT(paivitusSlot(QString)));
+
 }
 MainWindow::~MainWindow()
 {
@@ -113,25 +118,40 @@ void MainWindow::login_slot(QByteArray truefalse)
 void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
     qDebug() << "Tili valittu: " + tilinValinta;
+    tili = tilinValinta;
     pRESTAPI_DLL->getAsiakas(asiakas);
     if(tilinValinta=="credit")    {
         pRESTAPI_DLL->getCredit(credit);
-        Ppaaikkuna->show();
         pRESTAPI_DLL->getcreditTapahtuma(tilitapahtuma);
+        Ppaaikkuna->show();
     }
 
     if(tilinValinta=="debit") {
         pRESTAPI_DLL->getDebit(debit);
-        qDebug()<<"debitti on "+debit;
         pRESTAPI_DLL->getdebitTapahtuma(tilitapahtuma);
         Ppaaikkuna->show();
     }
 }
 
+void MainWindow::paivitusSlot(QString paivitus)
+{
+    qDebug()<< "lähetys "+tili;
+    if(tili == "debit")  {
+        pRESTAPI_DLL->getDebit(debit);
+        pRESTAPI_DLL->getdebitTapahtuma(tilitapahtuma);
+    }
+    if(tili == "credit")    {
+        pRESTAPI_DLL->getCredit(credit);
+        pRESTAPI_DLL->getcreditTapahtuma(tilitapahtuma);
+    }
+}
+
+
 void MainWindow::haenimi(QString nimi, QString sukunimi)
 {
     nimi = nimi+" " + sukunimi;
     Ppaaikkuna->asetaNimi(nimi);
+
     if(Ppaaikkuna->isMinimized()) {
         Ppaaikkuna->asetaNimi(nullptr);
     }
@@ -140,19 +160,21 @@ void MainWindow::haevelka(QString velka)
 {
     velka = velka+" €";
     Ppaaikkuna->asetaVelka(velka);
-    if(Ppaaikkuna->isMinimized()) {
-        Ppaaikkuna->asetaVelka(nullptr);
+
+        if(Ppaaikkuna->isMinimized()) {
+            Ppaaikkuna->asetaVelka(nullptr);
     }
 }
 void MainWindow::haesaldo(QString saldo)
 {
     saldo = saldo+" €";
     Ppaaikkuna->asetaSaldo(saldo);
-    qDebug()<<"hae saldo on "+saldo;
-    if(Ppaaikkuna->isMinimized()) {
-        Ppaaikkuna->asetaSaldo(nullptr);
+
+        if(Ppaaikkuna->isMinimized()) {
+            Ppaaikkuna->asetaSaldo(nullptr);
     }
 }
+
 
 void MainWindow::haedebittapahtuma(QString debittapahtumat)
 {

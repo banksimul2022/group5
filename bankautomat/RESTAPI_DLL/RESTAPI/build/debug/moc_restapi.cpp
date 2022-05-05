@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_RESTAPI_t {
-    QByteArrayData data[25];
-    char stringdata0[353];
+    QByteArrayData data[27];
+    char stringdata0[380];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,30 +45,33 @@ QT_MOC_LITERAL(9, 114, 10), // "velkaToExe"
 QT_MOC_LITERAL(10, 125, 10), // "saldoToExe"
 QT_MOC_LITERAL(11, 136, 13), // "talletusToExe"
 QT_MOC_LITERAL(12, 150, 10), // "nostoToExe"
-QT_MOC_LITERAL(13, 161, 19), // "debittapahtumaToExe"
-QT_MOC_LITERAL(14, 181, 20), // "credittapahtumaToExe"
-QT_MOC_LITERAL(15, 202, 10), // "login_slot"
-QT_MOC_LITERAL(16, 213, 14), // "getasiakasSlot"
-QT_MOC_LITERAL(17, 228, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(18, 243, 5), // "reply"
-QT_MOC_LITERAL(19, 249, 13), // "getcreditSlot"
-QT_MOC_LITERAL(20, 263, 12), // "getdebitSlot"
-QT_MOC_LITERAL(21, 276, 21), // "getdebittapahtumaSlot"
-QT_MOC_LITERAL(22, 298, 22), // "getcredittapahtumaSlot"
-QT_MOC_LITERAL(23, 321, 17), // "postTallestusSlot"
-QT_MOC_LITERAL(24, 339, 13) // "postNostoSlot"
+QT_MOC_LITERAL(13, 161, 11), // "creditToExe"
+QT_MOC_LITERAL(14, 173, 19), // "debittapahtumaToExe"
+QT_MOC_LITERAL(15, 193, 20), // "credittapahtumaToExe"
+QT_MOC_LITERAL(16, 214, 10), // "login_slot"
+QT_MOC_LITERAL(17, 225, 14), // "getasiakasSlot"
+QT_MOC_LITERAL(18, 240, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(19, 255, 5), // "reply"
+QT_MOC_LITERAL(20, 261, 13), // "getcreditSlot"
+QT_MOC_LITERAL(21, 275, 12), // "getdebitSlot"
+QT_MOC_LITERAL(22, 288, 21), // "getdebittapahtumaSlot"
+QT_MOC_LITERAL(23, 310, 22), // "getcredittapahtumaSlot"
+QT_MOC_LITERAL(24, 333, 17), // "postTallestusSlot"
+QT_MOC_LITERAL(25, 351, 13), // "postNostoSlot"
+QT_MOC_LITERAL(26, 365, 14) // "postCreditSlot"
 
     },
     "RESTAPI\0login_signal\0\0creditSignal\0"
     "debitSignal\0debittapahtumaSignal\0"
     "credittapahtumaSignal\0asiakasSignal\0"
     "nimiToExe\0velkaToExe\0saldoToExe\0"
-    "talletusToExe\0nostoToExe\0debittapahtumaToExe\0"
-    "credittapahtumaToExe\0login_slot\0"
-    "getasiakasSlot\0QNetworkReply*\0reply\0"
-    "getcreditSlot\0getdebitSlot\0"
+    "talletusToExe\0nostoToExe\0creditToExe\0"
+    "debittapahtumaToExe\0credittapahtumaToExe\0"
+    "login_slot\0getasiakasSlot\0QNetworkReply*\0"
+    "reply\0getcreditSlot\0getdebitSlot\0"
     "getdebittapahtumaSlot\0getcredittapahtumaSlot\0"
-    "postTallestusSlot\0postNostoSlot"
+    "postTallestusSlot\0postNostoSlot\0"
+    "postCreditSlot"
 };
 #undef QT_MOC_LITERAL
 
@@ -78,37 +81,39 @@ static const uint qt_meta_data_RESTAPI[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      23,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      13,       // signalCount
+      14,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  119,    2, 0x06 /* Public */,
-       3,    1,  122,    2, 0x06 /* Public */,
-       4,    1,  125,    2, 0x06 /* Public */,
-       5,    1,  128,    2, 0x06 /* Public */,
-       6,    1,  131,    2, 0x06 /* Public */,
-       7,    1,  134,    2, 0x06 /* Public */,
-       8,    2,  137,    2, 0x06 /* Public */,
-       9,    1,  142,    2, 0x06 /* Public */,
-      10,    1,  145,    2, 0x06 /* Public */,
-      11,    0,  148,    2, 0x06 /* Public */,
-      12,    0,  149,    2, 0x06 /* Public */,
-      13,    1,  150,    2, 0x06 /* Public */,
-      14,    1,  153,    2, 0x06 /* Public */,
+       1,    1,  129,    2, 0x06 /* Public */,
+       3,    1,  132,    2, 0x06 /* Public */,
+       4,    1,  135,    2, 0x06 /* Public */,
+       5,    1,  138,    2, 0x06 /* Public */,
+       6,    1,  141,    2, 0x06 /* Public */,
+       7,    1,  144,    2, 0x06 /* Public */,
+       8,    2,  147,    2, 0x06 /* Public */,
+       9,    1,  152,    2, 0x06 /* Public */,
+      10,    1,  155,    2, 0x06 /* Public */,
+      11,    0,  158,    2, 0x06 /* Public */,
+      12,    0,  159,    2, 0x06 /* Public */,
+      13,    0,  160,    2, 0x06 /* Public */,
+      14,    1,  161,    2, 0x06 /* Public */,
+      15,    1,  164,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      15,    1,  156,    2, 0x08 /* Private */,
-      16,    1,  159,    2, 0x08 /* Private */,
-      19,    1,  162,    2, 0x08 /* Private */,
-      20,    1,  165,    2, 0x08 /* Private */,
-      21,    1,  168,    2, 0x08 /* Private */,
-      22,    1,  171,    2, 0x08 /* Private */,
-      23,    1,  174,    2, 0x08 /* Private */,
-      24,    1,  177,    2, 0x08 /* Private */,
+      16,    1,  167,    2, 0x08 /* Private */,
+      17,    1,  170,    2, 0x08 /* Private */,
+      20,    1,  173,    2, 0x08 /* Private */,
+      21,    1,  176,    2, 0x08 /* Private */,
+      22,    1,  179,    2, 0x08 /* Private */,
+      23,    1,  182,    2, 0x08 /* Private */,
+      24,    1,  185,    2, 0x08 /* Private */,
+      25,    1,  188,    2, 0x08 /* Private */,
+      26,    1,  191,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QByteArray,    2,
@@ -122,18 +127,20 @@ static const uint qt_meta_data_RESTAPI[] = {
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QByteArray,    2,
-    QMetaType::Void, 0x80000000 | 17,   18,
-    QMetaType::Void, 0x80000000 | 17,   18,
-    QMetaType::Void, 0x80000000 | 17,   18,
-    QMetaType::Void, 0x80000000 | 17,   18,
-    QMetaType::Void, 0x80000000 | 17,   18,
-    QMetaType::Void, 0x80000000 | 17,   18,
-    QMetaType::Void, 0x80000000 | 17,   18,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, 0x80000000 | 18,   19,
 
        0        // eod
 };
@@ -155,28 +162,23 @@ void RESTAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 8: _t->saldoToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 9: _t->talletusToExe(); break;
         case 10: _t->nostoToExe(); break;
-        case 11: _t->debittapahtumaToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 12: _t->credittapahtumaToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 13: _t->login_slot((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
-        case 14: _t->getasiakasSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 15: _t->getcreditSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 16: _t->getdebitSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 17: _t->getdebittapahtumaSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 18: _t->getcredittapahtumaSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 19: _t->postTallestusSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 20: _t->postNostoSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 11: _t->creditToExe(); break;
+        case 12: _t->debittapahtumaToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 13: _t->credittapahtumaToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 14: _t->login_slot((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
+        case 15: _t->getasiakasSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 16: _t->getcreditSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 17: _t->getdebitSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 18: _t->getdebittapahtumaSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 19: _t->getcredittapahtumaSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 20: _t->postTallestusSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 21: _t->postNostoSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 22: _t->postCreditSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 14:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-            case 0:
-                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
-            }
-            break;
         case 15:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
@@ -213,6 +215,20 @@ void RESTAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
             break;
         case 20:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
+            }
+            break;
+        case 21:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
+            }
+            break;
+        case 22:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -300,16 +316,23 @@ void RESTAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
         }
         {
-            using _t = void (RESTAPI::*)(QString );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RESTAPI::debittapahtumaToExe)) {
+            using _t = void (RESTAPI::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RESTAPI::creditToExe)) {
                 *result = 11;
                 return;
             }
         }
         {
             using _t = void (RESTAPI::*)(QString );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RESTAPI::credittapahtumaToExe)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RESTAPI::debittapahtumaToExe)) {
                 *result = 12;
+                return;
+            }
+        }
+        {
+            using _t = void (RESTAPI::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RESTAPI::credittapahtumaToExe)) {
+                *result = 13;
                 return;
             }
         }
@@ -345,13 +368,13 @@ int RESTAPI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 23;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 23;
     }
     return _id;
 }
@@ -432,17 +455,23 @@ void RESTAPI::nostoToExe()
 }
 
 // SIGNAL 11
-void RESTAPI::debittapahtumaToExe(QString _t1)
+void RESTAPI::creditToExe()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 11, _a);
+    QMetaObject::activate(this, &staticMetaObject, 11, nullptr);
 }
 
 // SIGNAL 12
-void RESTAPI::credittapahtumaToExe(QString _t1)
+void RESTAPI::debittapahtumaToExe(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 12, _a);
+}
+
+// SIGNAL 13
+void RESTAPI::credittapahtumaToExe(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 13, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

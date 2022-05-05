@@ -8,6 +8,7 @@
 #include "pinkoodi_engine.h"
 #include "paaikkuna.h"
 #include "creditdebit.h"
+#include "nosta_rahaa.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,6 +32,8 @@ signals:
     void debitSignal(QString);
     void debittapahtumaSignal(QString);
     void credittapahtumaSignal(QString);
+    void saldoPaaikkunaan(QString);
+    void saldoSignaali(QString);
 
 private slots:
     void on_HYVAKSY_clicked();
@@ -40,6 +43,7 @@ private slots:
     //void talletusSlot(QString);
     void login_slot(QByteArray);
     void tiliValittuSlot(QString);
+    void paivitusSlot(QString);
     void getasiakasSlot(QString);
     void getcreditSlot(QString);
     void getdebitSlot(QString);
@@ -55,6 +59,7 @@ private:
     Paaikkuna * Ppaaikkuna;
     creditdebit * pcreditdebit;
     talleta_rahaa * ptalleta_rahaa;
+    nosta_rahaa * pnosta_rahaa;
     QString asiakas;
     QString tilitapahtuma;
     QString credit;
@@ -62,5 +67,6 @@ private:
     QString valinta;
     QString paivitus;
     QString debittapahtuma;
+    QString tili;
 };
 #endif // MAINWINDOW_H

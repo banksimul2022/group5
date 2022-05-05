@@ -42,7 +42,6 @@ private slots:
     void aika_loppu();
 
 signals:
-    void paivitusSignal(QString);
 
 private:
     Ui::talleta_rahaa *ui;

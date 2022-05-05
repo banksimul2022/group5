@@ -10,6 +10,7 @@ Paaikkuna::Paaikkuna(QWidget *parent) :
     pnosta_rahaa = new nosta_rahaa;
     ptalleta_rahaa = new talleta_rahaa;
     pcreditdebit = new creditdebit;
+    pRESTAPI_DLL = new RESTAPI;
 }
 
 Paaikkuna::~Paaikkuna()
@@ -57,3 +58,12 @@ void Paaikkuna::on_Kirjaudu_ulos_clicked()
 
 }
 
+void Paaikkuna::getdebitSlot(QString dtilinnumero)
+{
+    dtilinnumero = 1;
+}
+
+void Paaikkuna::on_paivita_clicked()
+{
+    emit paivitusSignal("paivitus");
+}

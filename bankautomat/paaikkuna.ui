@@ -24,6 +24,18 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <widget class="QPushButton" name="paivita">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Päivitä</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="Talleta_rahaa">
       <property name="font">
        <font>

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "restapi.h"
+#include "creditdebit.h"
 #include <QTimer>
 
 namespace Ui {
@@ -16,13 +17,12 @@ class nosta_rahaa : public QDialog
 public:
     explicit nosta_rahaa(QWidget *parent = nullptr);
     ~nosta_rahaa();
+
     QTimer * timer;
 
 public slots:
-    void haesaldo(QString);
 
 signals:
-    void crdnostoSignal(QString);
 
 private slots:
     void on_Sulje_btn_clicked();
@@ -38,11 +38,13 @@ private slots:
 private:
     Ui::nosta_rahaa *ui;
     RESTAPI * pRESTAPI_DLL;
+    creditdebit * pcreditdebit;
     QString nostoSumma;
     QString tilinnumero;
     QString raja;
     QString saldo;
     QString debit;
+    QString credit;
 };
 
 #endif // NOSTA_RAHAA_H

@@ -25,13 +25,13 @@ creditdebit::~creditdebit()
 void creditdebit::on_DEBIT_clicked()
 {
     emit tiliValittuSignal("debit");
-    //this->close();
+    this->close();
 }
 
 void creditdebit::on_CREDIT_clicked()
 {
     emit tiliValittuSignal("credit");
-    //this->close();
+    this->close();
 }
 
 void creditdebit::aika_loppu()
