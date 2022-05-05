@@ -17,26 +17,19 @@ public:
     ~nosta_rahaa();
 
 public slots:
-
+    void haesaldo(QString);
 
 signals:
     void crdnostoSignal(QString);
 
 private slots:
     void on_Sulje_btn_clicked();
-
     void on_kakskyt_btn_clicked();
-
     void on_nelkyt_btn_clicked();
-
     void on_kuuskyt_btn_clicked();
-
     void on_satku_btn_clicked();
-
     void on_kakssataa_btn_clicked();
-
     void on_viishunttia_btn_clicked();
-
     void on_Nosta_btn_clicked();
 
 private:
@@ -44,6 +37,9 @@ private:
     RESTAPI * pRESTAPI_DLL;
     QString nostoSumma;
     QString tilinnumero;
+    QString raja;
+    QString saldo;
+    QString debit;
 };
 
 #endif // NOSTA_RAHAA_H
