@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "restapi.h"
+#include <QTimer>
 
 namespace Ui {
 class nosta_rahaa;
@@ -15,6 +16,7 @@ class nosta_rahaa : public QDialog
 public:
     explicit nosta_rahaa(QWidget *parent = nullptr);
     ~nosta_rahaa();
+    QTimer * timer;
 
 public slots:
     void haesaldo(QString);
@@ -31,6 +33,7 @@ private slots:
     void on_kakssataa_btn_clicked();
     void on_viishunttia_btn_clicked();
     void on_Nosta_btn_clicked();
+    void aika_loppu();
 
 private:
     Ui::nosta_rahaa *ui;

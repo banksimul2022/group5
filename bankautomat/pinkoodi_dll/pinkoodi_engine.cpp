@@ -123,6 +123,7 @@ void pinkoodi_engine::on_clear_clicked()
 void pinkoodi_engine::aika_loppu()
 {
     this->close();
+    qDebug()<<"aika loppu";
 }
 
 void pinkoodi_engine::pinkoodi_vaarin()

@@ -26,7 +26,6 @@ public:
 
 
 private slots:
-    void on_selaatilitapahtumia_clicked();
     void on_Nosta_rahaa_clicked();
     void on_Talleta_rahaa_clicked();
     void on_Kirjaudu_ulos_clicked();
