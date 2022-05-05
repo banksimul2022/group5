@@ -110,6 +110,9 @@ void pinkoodi_engine::on_enter_clicked()
     qDebug()<<pinkoodi;
 
     emit pinkoodi_signal(pinkoodi);
+    pinkoodi.clear();
+    ui->lineEdit->clear();
+    ui->vaarapin_label->clear();
 }
 
 void pinkoodi_engine::on_clear_clicked()
@@ -137,7 +140,7 @@ void pinkoodi_engine::pinkoodi_vaarin()
     }
     ui->vaarapin_label->clear();
     pinkoodi.clear();
-    ui->vaarapin_label->setText("Pinkoodi vaarin" + QString::number(yritys) + "yritysta jaljella");
+    ui->vaarapin_label->setText("Pinkoodi vaarin " + QString::number(yritys) + " yritysta jaljella");
 
 }
 

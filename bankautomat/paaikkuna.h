@@ -25,12 +25,17 @@ public:
     void asetaTapahtuma(QString tapahtuu);
 
 
+public slots:
+
 private slots:
     void on_Nosta_rahaa_clicked();
     void on_Talleta_rahaa_clicked();
     void on_Kirjaudu_ulos_clicked();
+    void getdebitSlot(QString);
+    void on_paivita_clicked();
 
 signals:
+    void paivitusSignal(QString);
 
 private:
     Ui::Paaikkuna *ui;
@@ -39,6 +44,8 @@ private:
     creditdebit * pcreditdebit;
     RESTAPI * pRESTAPI_DLL;
     QString tilitapahtuma;
+    QString debit;
+    QString saldoa;
 };
 
 #endif // PAAIKKUNA_H
