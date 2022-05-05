@@ -1,32 +1,23 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 #include <QTimer>
-
 #include "rfid_dll.h"
 #include "pinkoodi_dll.h"
 #include "restapi.h"
 #include "pinkoodi_engine.h"
-
 #include "paaikkuna.h"
 #include "creditdebit.h"
-
-
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
 public slots:
     void haenimi(QString,QString);
     void haevelka(QString);
@@ -34,14 +25,12 @@ public slots:
     void haedebittapahtuma(QString);
     void haecredittapahtuma(QString);
 
-
 signals:
     void asiakasSignal(QString);
     void creditSignal(QString);
     void debitSignal(QString);
     void debittapahtumaSignal(QString);
     void credittapahtumaSignal(QString);
-
 
 private slots:
     void on_HYVAKSY_clicked();
@@ -55,7 +44,6 @@ private slots:
     void getdebitSlot(QString);
     void getdebittapahtumaSlot(QString);
     void getcredittapahtumaSlot(QString);
-
 
 private:
     Ui::MainWindow *ui;
@@ -71,5 +59,4 @@ private:
     QString debit;
     QString valinta;
 };
-
 #endif // MAINWINDOW_H

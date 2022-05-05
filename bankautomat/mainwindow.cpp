@@ -1,7 +1,6 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "paaikkuna.h"
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,10 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer;
     Ppaaikkuna = new Paaikkuna;
     pcreditdebit = new creditdebit;
-
     pRFID_DLL->luekortinid();
-
     startTimer();
+
     connect(pRFID_DLL,SIGNAL(laheta(QByteArray)),
                 this, SLOT(RFID_slot(QByteArray)));
 
@@ -24,8 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
                 this, SLOT(pinkoodi_slot(QString)));
 
     connect(pRESTAPI_DLL, SIGNAL(login_signal(QByteArray)),
-            this, SLOT(login_slot(QByteArray)));
 
+            this, SLOT(login_slot(QByteArray)));
     connect(pRESTAPI_DLL, SIGNAL(asiakasSignal(QString)),
             this, SLOT(getasiakasSlot(QString)));
 
@@ -58,67 +56,49 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(pcreditdebit,SIGNAL(tiliValittuSignal(QString)),
             this,SLOT(tiliValittuSlot(QString)));
-
 }
 MainWindow::~MainWindow()
 {
     delete ui;
-
     delete pRFID_DLL;
     pRFID_DLL = nullptr;
-
     delete pPinkoodi_dll;
     pPinkoodi_dll = nullptr;
-
     delete  pRESTAPI_DLL;
     pRESTAPI_DLL = nullptr;
-
     delete timer;
     timer = nullptr;
-
     delete Ppaaikkuna;
     Ppaaikkuna = nullptr;
-
     delete pcreditdebit;
     pcreditdebit = nullptr;
-
 }
-
 void MainWindow::on_HYVAKSY_clicked()
 {
     pPinkoodi_dll->show();
 }
-
 void MainWindow::RFID_slot(QByteArray)
 {
     pPinkoodi_dll->show();
-
 }
-
 void MainWindow::pinkoodi_slot(QString pinkoodi)
 {
     qDebug()<<"pinkoodi exessä: " + pinkoodi;
     pRESTAPI_DLL->setPin("1", pinkoodi);
 }
-
 void MainWindow::startTimer()
 {
     qDebug() << "start timer 10sec";
     timer->start(10000);
 }
-
 void MainWindow::login_slot(QByteArray truefalse)
 {
     qDebug()<< "login slotissa: " + truefalse;
     pRESTAPI_DLL->setwebToken(truefalse);
-
     if(truefalse.length() > 5)
     {
-
         pPinkoodi_dll->close();
-
         pcreditdebit->show();
-
     }
     else if(truefalse == "false")
     {
@@ -126,12 +106,10 @@ void MainWindow::login_slot(QByteArray truefalse)
         pPinkoodi_dll->pinkoodi_vaarin();
     }
 }
-
 void MainWindow::tiliValittuSlot(QString tilinValinta)
 {
     qDebug() << "Tili valittu: " + tilinValinta;
     pRESTAPI_DLL->getAsiakas(asiakas);
-
     if(tilinValinta=="credit")    {
         pRESTAPI_DLL->getCredit(credit);
         Ppaaikkuna->show();
@@ -144,32 +122,26 @@ void MainWindow::tiliValittuSlot(QString tilinValinta)
         Ppaaikkuna->show();
     }
 }
-
 void MainWindow::haenimi(QString nimi, QString sukunimi)
 {
     nimi = nimi+" " + sukunimi;
     Ppaaikkuna->asetaNimi(nimi);
-
     if(Ppaaikkuna->isMinimized()) {
         Ppaaikkuna->asetaNimi(nullptr);
     }
 }
-
 void MainWindow::haevelka(QString velka)
 {
     velka = velka+" €";
     Ppaaikkuna->asetaVelka(velka);
-
     if(Ppaaikkuna->isMinimized()) {
         Ppaaikkuna->asetaVelka(nullptr);
     }
 }
-
 void MainWindow::haesaldo(QString saldo)
 {
     saldo = saldo+" €";
     Ppaaikkuna->asetaSaldo(saldo);
-
     if(Ppaaikkuna->isMinimized()) {
         Ppaaikkuna->asetaSaldo(nullptr);
     }
@@ -179,7 +151,6 @@ void MainWindow::haedebittapahtuma(QString debittapahtumat)
 {
     Ppaaikkuna->asetaTapahtuma(debittapahtumat);
 }
-
 
 void MainWindow::haecredittapahtuma(QString credittapahtumat)
 {
@@ -196,18 +167,14 @@ void MainWindow::getcredittapahtumaSlot(QString cid)
     cid = 1;
 }
 
-
-
 void MainWindow::getasiakasSlot(QString tunnus)
 {
     tunnus = 1;
 }
-
 void MainWindow::getcreditSlot(QString ctilinnumero)
 {
     ctilinnumero = 1;
 }
-
 void MainWindow::getdebitSlot(QString dtilinnumero)
 {
     dtilinnumero = 1;
